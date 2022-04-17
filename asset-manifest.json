@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.15b2f907.css",
-    "main.js": "/static/js/main.029ddc0b.js",
-    "index.html": "/index.html",
-    "main.15b2f907.css.map": "/static/css/main.15b2f907.css.map",
-    "main.029ddc0b.js.map": "/static/js/main.029ddc0b.js.map"
+    "main.css": "/Bhavan-Techlabs/Bhavan-Techlabs/static/css/main.15b2f907.css",
+    "main.js": "/Bhavan-Techlabs/Bhavan-Techlabs/static/js/main.029ddc0b.js",
+    "index.html": "/Bhavan-Techlabs/Bhavan-Techlabs/index.html",
+    "main.15b2f907.css.map": "/Bhavan-Techlabs/Bhavan-Techlabs/static/css/main.15b2f907.css.map",
+    "main.029ddc0b.js.map": "/Bhavan-Techlabs/Bhavan-Techlabs/static/js/main.029ddc0b.js.map"
   },
   "entrypoints": [
     "static/css/main.15b2f907.css",
