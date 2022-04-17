@@ -1,4 +1,38 @@
 import React from "react";
+import Modal from "../../common/Modal";
+
+function addNewHeaderModalBody() {
+    return (
+        <>
+            <div className="card">
+                <div className="card-body">
+                    <div className="mb-3">
+                        <label htmlFor="header-content" className="form-label">
+                            Header
+                        </label>
+                        <input type="text" className="form-control" id="header-content" />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="header-value" className="form-label">
+                            Value
+                        </label>
+                        <input type="text" className="form-control" id="header-value" />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+function addNewHeaderModalFooter() {
+    return (
+        <>
+            <button type="button" className="btn btn-primary">
+                Save changes
+            </button>
+        </>
+    );
+}
 
 function Header({ id, header, header_value }) {
     const [checkboxChecked, setCheckboxChecked] = React.useState(true);
@@ -43,11 +77,10 @@ function Header({ id, header, header_value }) {
 }
 
 export default function HeadersTab() {
-
     var headers = {
-        "Accept": "*/*",
+        Accept: "*/*",
         "Content-Type": "application/json",
-        "Authorization": "Bearer "
+        Authorization: "Bearer ",
     };
 
     const setHeaders = (headers) => {
@@ -63,7 +96,24 @@ export default function HeadersTab() {
 
     return (
         <>
-            <h5 className="m-3 p-2 text-md-left">Http Headers</h5>
+            <div className="d-flex justify-content-between align-items-center">
+                <h5 className="m-3 p-2 text-md-left">Http Headers</h5>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#httpHeaderModal"
+                >
+                    Add New Http Header
+                </button>
+                <Modal
+                    modalId="httpHeaderModal"
+                    modalTitle="Http Header"
+                    modalBody={addNewHeaderModalBody()}
+                    modalFooter={addNewHeaderModalFooter()}
+                />
+            </div>
+
             {setHeaders(headers)}
         </>
     );

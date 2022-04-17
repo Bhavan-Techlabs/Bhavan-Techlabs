@@ -105,6 +105,7 @@ export default function AuthTab() {
                                     type="text"
                                     className="form-control h-100"
                                     id="auth-token"
+                                    rows="10"
                                 ></textarea>
                             </div>
                         </div>
