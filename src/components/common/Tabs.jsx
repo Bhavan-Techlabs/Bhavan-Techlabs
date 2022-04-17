@@ -6,66 +6,33 @@ import TodoApp from "../pages/Todo";
 import Utility from "../pages/Utility";
 import MyEditor from "../pages/MyEditor";
 
+function TabContent({ page, id, isActive = false }) {
+    return (
+        <>
+            <div
+                className={
+                    isActive ? "tab-pane fade mt-3 show active" : "tab-pane fade mt-3"
+                }
+                id={`${id}-testing`}
+                role="tabpanel"
+                aria-labelledby={`${id}-tab`}
+            >
+                {page}
+            </div>
+        </>
+    );
+}
 
 export default function Tabs() {
     return (
         <div className="tab-content" id="myTabContent">
-            <div
-                className="tab-pane fade mt-3 show active"
-                id="text-editor-testing"
-                role="tabpanel"
-                aria-labelledby="text-editor-tab"
-            >
-                <MyEditor />
-            </div>
-            <div
-                className="tab-pane fade mt-3"
-                id="utility-testing"
-                role="tabpanel"
-                aria-labelledby="utility-tab"
-            >
-                <Utility />
-            </div>
-            <div
-                className="tab-pane fade mt-3"
-                id="test-data-testing"
-                role="tabpanel"
-                aria-labelledby="test-data-tab"
-            >
-                <Testdata />
-            </div>
-            <div
-                className="tab-pane fade mt-3"
-                id="todo-testing"
-                role="tabpanel"
-                aria-labelledby="todo-tab"
-            >
-                <TodoApp />
-            </div>
-            <div
-                className="tab-pane fade mt-3"
-                id="json-testing"
-                role="tabpanel"
-                aria-labelledby="json-tab"
-            >
-                <Json />
-            </div>
-            {/* <div
-                className="tab-pane fade mt-3"
-                id="pubsub-testing"
-                role="tabpanel"
-                aria-labelledby="pubsub-tab"
-            >
-                <Pubsub />
-            </div> */}
-            <div
-                className="tab-pane fade mt-3"
-                id="postman-testing"
-                role="tabpanel"
-                aria-labelledby="postman-tab"
-            >
-                <HttpClient />
-            </div>
+            <TabContent page={<MyEditor />} id="text-editor" isActive={true} />
+            <TabContent page={<Utility />} id="utility" />
+            <TabContent page={<Testdata />} id="test-data" />
+            <TabContent page={<TodoApp />} id="todo" />
+            <TabContent page={<Json />} id="json" />
+            {/* <TabContent page={<Pubsub />} id="pubsub"  /> */}
+            <TabContent page={<HttpClient />} id="http-client" />
         </div>
     );
 }

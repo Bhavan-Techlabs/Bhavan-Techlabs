@@ -1,105 +1,39 @@
+function HeaderNavItem({ name, id, isActive = false }) {
+    return (
+        <>
+            <li className="nav-item" role="presentation">
+                <button
+                    className={isActive ? "nav-link active" : "nav-link"}
+                    id={`${id}-tab`}
+                    data-bs-toggle="tab"
+                    data-bs-target={`#${id}-testing`}
+                    type="button"
+                    role="tab"
+                    aria-controls={`${id}-testing`}
+                    aria-selected="false"
+                >
+                    {name}
+                </button>
+            </li>
+        </>
+    );
+}
+
 export default function Header() {
     return (
         <>
             <ul className="nav nav-pills" id="myTab" role="tablist">
-                <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link active"
-                        id="text-editor-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#text-editor-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="text-editor-testing"
-                        aria-selected="false"
-                    >
-                        TEXT EDITOR
-                    </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="utility-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#utility-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="utility-testing"
-                        aria-selected="false"
-                    >
-                        UTILITY
-                    </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="test-data-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#test-data-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="test-data-testing"
-                        aria-selected="false"
-                    >
-                        TEST DATA
-                    </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="todo-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#todo-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="todo-testing"
-                        aria-selected="false"
-                    >
-                        TODO
-                    </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="json-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#json-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="json-testing"
-                        aria-selected="false"
-                    >
-                        JSON
-                    </button>
-                </li>
-                {/* <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="pubsub-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#pubsub-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="pubsub-testing"
-                        aria-selected="true"
-                    >
-                        PUBSUB
-                    </button>
-                </li> */}
-                <li className="nav-item" role="presentation">
-                    <button
-                        className="nav-link"
-                        id="postman-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#postman-testing"
-                        type="button"
-                        role="tab"
-                        aria-controls="postman-testing"
-                        aria-selected="false"
-                    >
-                        HTTP CLIENT
-                    </button>
-                </li>
+                <HeaderNavItem
+                    name={"TEXT EDITOR"}
+                    id={"text-editor"}
+                    isActive={true}
+                />
+                <HeaderNavItem name={"UTILITY"} id={"utility"} />
+                <HeaderNavItem name={"TEST DATA"} id={"test-data"} />
+                <HeaderNavItem name={"TODO"} id={"todo"} />
+                <HeaderNavItem name={"JSON"} id={"json"} />
+                {/* <HeaderNavItem name={"PUBSUB"} id={"pubsub"} /> */}
+                <HeaderNavItem name={"HTTP CLIENT"} id={"http-client"} />
             </ul>
         </>
     );
