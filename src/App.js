@@ -1,13 +1,7 @@
-import Header from "./components/common/Header";
-import Tabs from "./components/common/Tabs";
+import Main from "./components/common/Main";
 
 function App() {
-  return (
-    <main className="container mt-5">
-      <Header />
-      <Tabs />
-    </main>
-  );
+  return <Main />;
 }
 
 export default App;
