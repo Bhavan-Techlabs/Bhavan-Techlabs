@@ -162,7 +162,6 @@ export default function HttpClient() {
                 result = getRequest({ url: requestURL });
                 break;
         }
-
         result
             .then((res) => {
                 let value = "";

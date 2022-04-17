@@ -1,6 +1,18 @@
 import React from "react";
+import format from "xml-formatter";
 
 export default function BodyTab() {
+    const [jsonBodyValue, setJsonBodyValue] = React.useState("");
+    const [xmlBodyValue, setXmlBodyValue] = React.useState("");
+
+    const handle_json_body = (e) => {
+        setJsonBodyValue(e.target.value);
+    };
+
+    const handle_xml_body = (e) => {
+        setXmlBodyValue(e.target.value);
+    };
+
     return (
         <>
             <h5 className="m-3 p-2 text-md-left">Body</h5>
@@ -105,10 +117,30 @@ export default function BodyTab() {
                             <div className="card-body">
                                 <textarea
                                     type="text"
-                                    className="form-control h-100"
+                                    className="form-control"
                                     id="json-body"
+                                    rows="10"
+                                    value={jsonBodyValue}
+                                    onChange={handle_json_body}
                                 ></textarea>
-                                <button className="btn btn-outline-info">format</button>
+                                <button
+                                    className="btn btn-outline-info"
+                                    onClick={() => {
+                                        let output = "";
+                                        try {
+                                            output = JSON.stringify(
+                                                JSON.parse(jsonBodyValue),
+                                                null,
+                                                "\t"
+                                            );
+                                        } catch (error) {
+                                            output = error;
+                                        }
+                                        setJsonBodyValue(output);
+                                    }}
+                                >
+                                    format
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -125,8 +157,29 @@ export default function BodyTab() {
                                     type="text"
                                     className="form-control h-100"
                                     id="xml-body"
+                                    rows="10"
+                                    value={xmlBodyValue}
+                                    onChange={handle_xml_body}
                                 ></textarea>
-                                <button className="btn btn-outline-info">format</button>
+                                <button
+                                    className="btn btn-outline-info"
+                                    onClick={() => {
+                                        let output = "";
+                                        try {
+                                            output = format(xmlBodyValue, {
+                                                indentation: "  ",
+                                                filter: (node) => node.type !== "Comment",
+                                                collapseContent: true,
+                                                lineSeparator: "\n",
+                                            });
+                                        } catch (error) {
+                                            output = error;
+                                        }
+                                        setXmlBodyValue(output);
+                                    }}
+                                >
+                                    format
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -143,6 +196,7 @@ export default function BodyTab() {
                                     type="text"
                                     className="form-control h-100"
                                     id="text-body"
+                                    rows="10"
                                 ></textarea>
                             </div>
                         </div>
