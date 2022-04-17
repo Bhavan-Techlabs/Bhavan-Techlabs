@@ -42,7 +42,7 @@ export default function Testdata() {
 			paragraphs: faker.lorem.paragraphs(),
 			words: faker.random.alpha(wordCount),
 		});
-		console.log("clicked");
+		console.log(faker);
 	};
 
 	const handleChange = (e) => {
@@ -226,7 +226,7 @@ export default function Testdata() {
 							</div>
 						</div>
 						<div className="m-3 row">
-							<label className="col-sm-2 col-form-label">Transaction Id: </label>
+							<label className="col-sm-2 col-form-label">UUID: </label>
 							<div className="col-md">
 								<input
 									type="text"

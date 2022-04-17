@@ -33,7 +33,7 @@ function Timestamp() {
                     type="button"
                     className="btn btn-primary w-100"
                     id="gen-util-timestamp-btn"
-                    value="Generate & copy"
+                    value="Get Timestamp"
                     onClick={gen_util_timestamp}
                 />
             </div>
@@ -127,7 +127,7 @@ function IP() {
                     type="button"
                     className="btn btn-primary w-100"
                     id="gen-util-ip-btn"
-                    value="GET IP & copy"
+                    value="GET IP"
                     onClick={gen_util_ip}
                 />
             </div>
