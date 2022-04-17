@@ -1,5 +1,39 @@
 import React from "react";
 import { getQueryParams } from "../../../functions/util";
+import Modal from "../../common/Modal";
+
+function addNewQueryParamModalBody() {
+    return (
+        <>
+            <div className="card">
+                <div className="card-body">
+                    <div className="mb-3">
+                        <label htmlFor="parameter-content" className="form-label">
+                            Parameter
+                        </label>
+                        <input type="text" className="form-control" id="parameter-content" />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="parameter-value" className="form-label">
+                            Value
+                        </label>
+                        <input type="text" className="form-control" id="parameter-value" />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+function addNewQueryParamModalFooter() {
+    return (
+        <>
+            <button type="button" className="btn btn-primary">
+                Save changes
+            </button>
+        </>
+    );
+}
 
 function QueryParams({ id, parameter, parameter_value }) {
     const [checkboxChecked, setCheckboxChecked] = React.useState(true);
@@ -69,7 +103,23 @@ export default function QueryTab({ requestURL }) {
 
     return (
         <>
-            <h5 className="m-3 p-2 text-md-left">Query Parameters</h5>
+            <div className="d-flex justify-content-between align-items-center">
+                <h5 className="m-3 p-2 text-md-left">Query Parameters</h5>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#queryParameterModal"
+                >
+                    Add New Query Parameter
+                </button>
+                <Modal
+                    modalId="queryParameterModal"
+                    modalTitle="Query Parameter"
+                    modalBody={addNewQueryParamModalBody()}
+                    modalFooter={addNewQueryParamModalFooter()}
+                />
+            </div>
             {setQueryParams(params)}
         </>
     );

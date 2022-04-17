@@ -1,5 +1,130 @@
 import React from "react";
 import format from "xml-formatter";
+import Modal from "../../common/Modal";
+
+function addNewFormFieldModalBody() {
+    return (
+        <>
+            <div className="card">
+                <div className="card-body">
+                    <div className="mb-3">
+                        <label htmlFor="form-fields-content" className="form-label">
+                            Field Name
+                        </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="form-fields-content"
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="form-fields-value" className="form-label">
+                            Value
+                        </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="form-fields-value"
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+function addNewFormFieldModalFooter() {
+    return (
+        <>
+            <button type="button" className="btn btn-primary">
+                Save changes
+            </button>
+        </>
+    );
+}
+
+function Form({ id, formField, formValue }) {
+    const [checkboxChecked, setCheckboxChecked] = React.useState(true);
+
+    return (
+        <div className="row m-1">
+            <div className="col">
+                <input
+                    type="text"
+                    className="form-control"
+                    id={`formField-${id}`}
+                    defaultValue={formField}
+                    placeholder="parameter"
+                    required
+                />
+            </div>
+            <div className="col">
+                <input
+                    type="text"
+                    className="form-control"
+                    id={`formValue-${id}`}
+                    defaultValue={formValue}
+                    placeholder="value"
+                    required
+                />
+            </div>
+            <div className="col-md-1 d-flex align-items-center">
+                <div className="form-check">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id={`enable-formField-${id}`}
+                        defaultChecked={checkboxChecked}
+                        onClick={() => {
+                            setCheckboxChecked(!checkboxChecked);
+                        }}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function FormTab({ formFields }) {
+    const setFormFields = (formFields) => {
+        let content = [];
+        let i = 0;
+        for (const prop in formFields) {
+            content.push(
+                <Form
+                    key={++i}
+                    id={++i}
+                    formField={prop}
+                    formValue={formFields[prop]}
+                />
+            );
+        }
+        return content;
+    };
+
+    return (
+        <>
+            <div className="d-flex justify-content-between align-items-center">
+                <h5 className="m-3 p-2 text-md-left">Form Fields</h5>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#formFieldsModal"
+                >
+                    Add New Form Field
+                </button>
+                <Modal
+                    modalId="formFieldsModal"
+                    modalTitle="Form Fields"
+                    modalBody={addNewFormFieldModalBody()}
+                    modalFooter={addNewFormFieldModalFooter()}
+                />
+            </div>
+            {setFormFields(formFields)}
+        </>
+    );
+}
 
 export default function BodyTab() {
     const [jsonBodyValue, setJsonBodyValue] = React.useState("");
@@ -11,6 +136,31 @@ export default function BodyTab() {
 
     const handle_xml_body = (e) => {
         setXmlBodyValue(e.target.value);
+    };
+
+    const formatJson = () => {
+        let output = "";
+        try {
+            output = JSON.stringify(JSON.parse(jsonBodyValue), null, "\t");
+        } catch (error) {
+            output = error;
+        }
+        setJsonBodyValue(output);
+    };
+
+    const formatXML = () => {
+        let output = "";
+        try {
+            output = format(xmlBodyValue, {
+                indentation: "  ",
+                filter: (node) => node.type !== "Comment",
+                collapseContent: true,
+                lineSeparator: "\n",
+            });
+        } catch (error) {
+            output = error;
+        }
+        setXmlBodyValue(output);
     };
 
     return (
@@ -101,7 +251,7 @@ export default function BodyTab() {
                             aria-controls="nav-graphql"
                             aria-selected="false"
                         >
-                            Graphql
+                            GraphQL
                         </button>
                     </div>
                 </nav>
@@ -123,22 +273,7 @@ export default function BodyTab() {
                                     value={jsonBodyValue}
                                     onChange={handle_json_body}
                                 ></textarea>
-                                <button
-                                    className="btn btn-outline-info"
-                                    onClick={() => {
-                                        let output = "";
-                                        try {
-                                            output = JSON.stringify(
-                                                JSON.parse(jsonBodyValue),
-                                                null,
-                                                "\t"
-                                            );
-                                        } catch (error) {
-                                            output = error;
-                                        }
-                                        setJsonBodyValue(output);
-                                    }}
-                                >
+                                <button className="btn btn-outline-info" onClick={formatJson}>
                                     format
                                 </button>
                             </div>
@@ -161,23 +296,7 @@ export default function BodyTab() {
                                     value={xmlBodyValue}
                                     onChange={handle_xml_body}
                                 ></textarea>
-                                <button
-                                    className="btn btn-outline-info"
-                                    onClick={() => {
-                                        let output = "";
-                                        try {
-                                            output = format(xmlBodyValue, {
-                                                indentation: "  ",
-                                                filter: (node) => node.type !== "Comment",
-                                                collapseContent: true,
-                                                lineSeparator: "\n",
-                                            });
-                                        } catch (error) {
-                                            output = error;
-                                        }
-                                        setXmlBodyValue(output);
-                                    }}
-                                >
+                                <button className="btn btn-outline-info" onClick={formatXML}>
                                     format
                                 </button>
                             </div>
@@ -208,8 +327,10 @@ export default function BodyTab() {
                         aria-labelledby="nav-form-tab"
                     >
                         <div className="card">
-                            <div className="card-header">form</div>
-                            <div className="card-body"></div>
+                            <div className="card-header">Form</div>
+                            <div className="card-body">
+                                <FormTab formFields={{}} />
+                            </div>
                         </div>
                     </div>
                     <div
@@ -219,8 +340,10 @@ export default function BodyTab() {
                         aria-labelledby="nav-form-encode-tab"
                     >
                         <div className="card">
-                            <div className="card-header">form-encode</div>
-                            <div className="card-body"></div>
+                            <div className="card-header">Form-Encode</div>
+                            <div className="card-body">
+                                <FormTab formFields={{}} />
+                            </div>
                         </div>
                     </div>
                     <div
@@ -230,8 +353,12 @@ export default function BodyTab() {
                         aria-labelledby="nav-binary-tab"
                     >
                         <div className="card">
-                            <div className="card-header">binary</div>
-                            <div className="card-body"></div>
+                            <div className="card-header">Binary</div>
+                            <div className="card-body">
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" id="binary-file" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div
@@ -241,8 +368,27 @@ export default function BodyTab() {
                         aria-labelledby="nav-graphql-tab"
                     >
                         <div className="card">
-                            <div className="card-header">graphql</div>
-                            <div className="card-body"></div>
+                            <div className="card-header">GraphQL</div>
+                            <div className="card-body">
+                                <div className="form-control">
+                                    <label htmlFor="graphql-query">Query</label>
+                                    <textarea
+                                        type="text"
+                                        className="form-control h-100"
+                                        id="graphql-query"
+                                        rows="10"
+                                    ></textarea>
+                                </div>
+                                <div className="form-control">
+                                    <label htmlFor="graphql-variables">Variables</label>
+                                    <textarea
+                                        type="text"
+                                        className="form-control h-100"
+                                        id="graphql-variables"
+                                        rows="10"
+                                    ></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
