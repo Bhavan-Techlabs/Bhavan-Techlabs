@@ -3,6 +3,7 @@ import faker from "faker";
 
 function TestdataComponent({
 	isRandomWord = false,
+	isTextArea = false,
 	wordCount,
 	handleWordCount,
 	datatype,
@@ -17,8 +18,8 @@ function TestdataComponent({
 		<>
 			{isRandomWord ? (
 				<div className="m-3 row">
-					<label className="col-sm-2 col-form-label">
-						{name}
+					<label className="col-sm-2 col-form-label m-2">
+						{`${name}: `}
 						<input
 							type="text"
 							className="form-control mt-1"
@@ -37,13 +38,26 @@ function TestdataComponent({
 						></textarea>
 					</div>
 				</div>
+			) : isTextArea ? (
+				<div className="m-3 row">
+					<label className="col-sm-2 col-form-label m-2">{`${name}: `}</label>
+					<div className="col-md">
+						<textarea
+							type="text"
+							className="form-control"
+							id={datatype}
+							value={datatype}
+							onChange={handleChange}
+						></textarea>
+					</div>
+				</div>
 			) : (
 				<div className="m-3 row">
-					<label className="col-sm-2 col-form-label">{name}: </label>
+					<label className="col-sm-2 col-form-label m-2">{`${name}: `}</label>
 					<div className="col-md">
 						<input
 							type="text"
-							className="form-control"
+							className="form-control h-100"
 							id={datatype}
 							value={datatype}
 							onChange={handleChange}
@@ -90,6 +104,7 @@ export default function Testdata() {
 			transactionDescription: faker.finance.transactionDescription(),
 			creditCardNumber: faker.finance.creditCardNumber(),
 			color: faker.commerce.color(),
+			address: faker.address.streetAddress()
 		};
 	};
 
@@ -124,6 +139,7 @@ export default function Testdata() {
 						<TestdataComponent name={"City"} datatype={data.city} />
 						<TestdataComponent name={"Country"} datatype={data.country} />
 						<TestdataComponent name={"State"} datatype={data.state} />
+						<TestdataComponent name={"Address"} datatype={data.address} />
 						<TestdataComponent name={"Company"} datatype={data.company} />
 						<TestdataComponent name={"Department"} datatype={data.department} />
 						<TestdataComponent name={"Product"} datatype={data.product} />
@@ -131,6 +147,12 @@ export default function Testdata() {
 						<TestdataComponent name={"File Name"} datatype={data.fileName} />
 						<TestdataComponent name={"File EXT"} datatype={data.fileExt} />
 						<TestdataComponent name={"File Type"} datatype={data.fileType} />
+						<TestdataComponent
+							name={"Bitcoin"}
+							datatype={data.bitcoinAddress}
+						/>
+					</div>
+					<div className="col">
 						<TestdataComponent
 							isRandomWord={true}
 							name={"Random Words"}
@@ -140,8 +162,16 @@ export default function Testdata() {
 								setWordCount(Number(e.target.value));
 							}}
 						/>
-					</div>
-					<div className="col">
+						<TestdataComponent
+							name={"Sentences"}
+							datatype={data.sentences}
+							isTextArea={true}
+						/>
+						<TestdataComponent
+							name={"Paragraphs"}
+							datatype={data.paragraphs}
+							isTextArea={true}
+						/>
 						<TestdataComponent name={"UUID"} datatype={data.uuid} />
 						<TestdataComponent name={"Job Title"} datatype={data.jobTitle} />
 						<TestdataComponent name={"Job Type"} datatype={data.jobType} />
@@ -149,26 +179,21 @@ export default function Testdata() {
 							name={"Job Descriptor"}
 							datatype={data.jobDescriptor}
 						/>
+						<TestdataComponent name={"Username"} datatype={data.userName} />
+						<TestdataComponent name={"URL"} datatype={data.url} />
 						<TestdataComponent name={"Prefix"} datatype={data.prefix} />
 						<TestdataComponent name={"Title"} datatype={data.title} />
 						<TestdataComponent name={"Genre"} datatype={data.genre} />
-						<TestdataComponent name={"Username"} datatype={data.userName} />
-						<TestdataComponent name={"URL"} datatype={data.url} />
+						<TestdataComponent name={"Color"} datatype={data.color} />
 						<TestdataComponent
-							name={"Bitcoin Address"}
-							datatype={data.bitcoinAddress}
+							name={"CC No"}
+							datatype={data.creditCardNumber}
 						/>
 						<TestdataComponent
 							name={"Transaction Description"}
 							datatype={data.transactionDescription}
+							isTextArea={true}
 						/>
-						<TestdataComponent
-							name={"Credit Card"}
-							datatype={data.creditCardNumber}
-						/>
-						<TestdataComponent name={"Color"} datatype={data.color} />
-						<TestdataComponent name={"Sentences"} datatype={data.sentences} />
-						<TestdataComponent name={"Paragraphs"} datatype={data.paragraphs} />
 					</div>
 				</div>
 			</div>

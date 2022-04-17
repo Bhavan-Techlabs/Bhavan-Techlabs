@@ -56,14 +56,11 @@ function ConvertTimestamp() {
     return (
         <>
             <div className="col-md-2">
-                <label
-                    htmlFor="conv-util-timestamp"
-                    className="col-form-label"
-                >
+                <label htmlFor="conv-util-timestamp" className="col-form-label">
                     Convert Timestamp:
                 </label>
             </div>
-            <div className="col-md">
+            <div className="col-md d-flex">
                 <div className="col-md">
                     <input
                         type="text"
