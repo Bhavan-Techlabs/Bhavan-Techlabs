@@ -42,6 +42,7 @@ export default function Testdata() {
 			paragraphs: faker.lorem.paragraphs(),
 			words: faker.random.alpha(wordCount),
 		});
+		console.log("clicked");
 	};
 
 	const handleChange = (e) => {

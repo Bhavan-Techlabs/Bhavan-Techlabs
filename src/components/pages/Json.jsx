@@ -52,7 +52,7 @@ export default function Json() {
 
     const clear_json = () => {
         setInputJsonValue("");
-        outputJsonValue("");
+        setOutputJsonValue("");
     };
 
     const handleChange = (e) => {
