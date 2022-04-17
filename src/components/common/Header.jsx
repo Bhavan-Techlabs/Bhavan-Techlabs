@@ -5,6 +5,20 @@ export default function Header() {
                 <li className="nav-item" role="presentation">
                     <button
                         className="nav-link active"
+                        id="text-editor-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#text-editor-testing"
+                        type="button"
+                        role="tab"
+                        aria-controls="text-editor-testing"
+                        aria-selected="false"
+                    >
+                        TEXT EDITOR
+                    </button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button
+                        className="nav-link"
                         id="utility-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#utility-testing"

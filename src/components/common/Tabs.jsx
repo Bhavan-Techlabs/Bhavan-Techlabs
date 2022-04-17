@@ -4,12 +4,22 @@ import HttpClient from "../pages/HttpClient";
 import Testdata from "../pages/Testdata";
 import TodoApp from "../pages/Todo";
 import Utility from "../pages/Utility";
+import MyEditor from "../pages/MyEditor";
+
 
 export default function Tabs() {
     return (
         <div className="tab-content" id="myTabContent">
             <div
                 className="tab-pane fade mt-3 show active"
+                id="text-editor-testing"
+                role="tabpanel"
+                aria-labelledby="text-editor-tab"
+            >
+                <MyEditor />
+            </div>
+            <div
+                className="tab-pane fade mt-3"
                 id="utility-testing"
                 role="tabpanel"
                 aria-labelledby="utility-tab"
