@@ -2,29 +2,29 @@ import React from "react";
 import format from "xml-formatter";
 import Modal from "../../common/Modal";
 
-function addNewFormFieldModalBody() {
+function addNewFormFieldModalBody({ id }) {
     return (
         <>
             <div className="card">
                 <div className="card-body">
                     <div className="mb-3">
-                        <label htmlFor="form-fields-content" className="form-label">
+                        <label htmlFor={`form-fields-content-${id}`} className="form-label">
                             Field Name
                         </label>
                         <input
                             type="text"
                             className="form-control"
-                            id="form-fields-content"
+                            id={`form-fields-content-${id}`}
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="form-fields-value" className="form-label">
+                        <label htmlFor={`form-fields-value-${id}`} className="form-label">
                             Value
                         </label>
                         <input
                             type="text"
                             className="form-control"
-                            id="form-fields-value"
+                            id={`form-fields-value-${id}`}
                         />
                     </div>
                 </div>
@@ -85,7 +85,7 @@ function Form({ id, formField, formValue }) {
     );
 }
 
-function FormTab({ formFields }) {
+function FormTab({ id, name, formFields }) {
     const setFormFields = (formFields) => {
         let content = [];
         let i = 0;
@@ -105,19 +105,19 @@ function FormTab({ formFields }) {
     return (
         <>
             <div className="d-flex justify-content-between align-items-center">
-                <h5 className="m-3 p-2 text-md-left">Form Fields</h5>
+                <h5 className="m-3 p-2 text-md-left">{name}</h5>
                 <button
                     type="button"
                     className="btn btn-primary"
                     data-bs-toggle="modal"
-                    data-bs-target="#formFieldsModal"
+                    data-bs-target={`#formFieldsModal${id}`}
                 >
                     Add New Form Field
                 </button>
                 <Modal
-                    modalId="formFieldsModal"
-                    modalTitle="Form Fields"
-                    modalBody={addNewFormFieldModalBody()}
+                    modalId={`formFieldsModal${id}`}
+                    modalTitle={name}
+                    modalBody={addNewFormFieldModalBody({ id })}
                     modalFooter={addNewFormFieldModalFooter()}
                 />
             </div>
@@ -329,7 +329,7 @@ export default function BodyTab() {
                         <div className="card">
                             <div className="card-header">Form</div>
                             <div className="card-body">
-                                <FormTab formFields={{}} />
+                                <FormTab id={"1"} name="Form Fields" formFields={{}} />
                             </div>
                         </div>
                     </div>
@@ -342,7 +342,7 @@ export default function BodyTab() {
                         <div className="card">
                             <div className="card-header">Form-Encode</div>
                             <div className="card-body">
-                                <FormTab formFields={{}} />
+                                <FormTab id={"2"} name="Form Encoded" formFields={{}} />
                             </div>
                         </div>
                     </div>
@@ -355,8 +355,8 @@ export default function BodyTab() {
                         <div className="card">
                             <div className="card-header">Binary</div>
                             <div className="card-body">
-                                <div class="input-group mb-3">
-                                    <input type="file" class="form-control" id="binary-file" />
+                                <div className="input-group mb-3">
+                                    <input type="file" className="form-control" id="binary-file" />
                                 </div>
                             </div>
                         </div>
@@ -371,7 +371,7 @@ export default function BodyTab() {
                             <div className="card-header">GraphQL</div>
                             <div className="card-body">
                                 <div className="form-control">
-                                    <label htmlFor="graphql-query">Query</label>
+                                    <label className="m-1" htmlFor="graphql-query">Query</label>
                                     <textarea
                                         type="text"
                                         className="form-control h-100"
@@ -380,7 +380,7 @@ export default function BodyTab() {
                                     ></textarea>
                                 </div>
                                 <div className="form-control">
-                                    <label htmlFor="graphql-variables">Variables</label>
+                                    <label className="m-1" htmlFor="graphql-variables">Variables</label>
                                     <textarea
                                         type="text"
                                         className="form-control h-100"
