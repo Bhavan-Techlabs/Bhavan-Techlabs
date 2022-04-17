@@ -24,7 +24,7 @@ export default function Testdata() {
 	});
 
 	const generateData = (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		setData({
 			name: faker.name.findName(),
 			email: faker.internet.email(),
@@ -62,7 +62,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-name"
-									defaultValue={data.name}
+									value={data.name}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -74,7 +75,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-email"
-									defaultValue={data.email}
+									value={data.email}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -86,7 +88,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-street"
-									defaultValue={data.street}
+									value={data.street}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -98,7 +101,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-city"
-									defaultValue={data.city}
+									value={data.city}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -110,7 +114,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-state"
-									defaultValue={data.state}
+									value={data.state}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -122,7 +127,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-company"
-									defaultValue={data.company}
+									value={data.company}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -134,9 +140,9 @@ export default function Testdata() {
 									type="text"
 									className="form-control mt-1"
 									id="random-words-count"
-									defaultValue={wordCount}
+									value={wordCount}
 									onChange={(e) => {
-										setWordCount(Number(e.target.defaultValue));
+										setWordCount(Number(e.target.value));
 									}}
 								/>
 							</label>
@@ -145,7 +151,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control h-100"
 									id="random-words"
-									defaultValue={data.words}
+									value={data.words}
+									onChange={() => {}}
 									onClick={handleChange}
 								></textarea>
 							</div>
@@ -160,7 +167,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-department"
-									defaultValue={data.department}
+									value={data.department}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -172,7 +180,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-product"
-									defaultValue={data.product}
+									value={data.product}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -184,7 +193,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-phone"
-									defaultValue={data.phone}
+									value={data.phone}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -196,7 +206,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-vehicle"
-									defaultValue={data.vehicle}
+									value={data.vehicle}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -208,7 +219,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-password"
-									defaultValue={data.password}
+									value={data.password}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -220,7 +232,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control"
 									id="random-transactionId"
-									defaultValue={data.transactionId}
+									value={data.transactionId}
+									onChange={() => {}}
 									onClick={handleChange}
 								/>
 							</div>
@@ -232,7 +245,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control h-100"
 									id="random-sentences"
-									defaultValue={data.sentences}
+									value={data.sentences}
+									onChange={() => {}}
 									onClick={handleChange}
 								></textarea>
 							</div>
@@ -244,7 +258,8 @@ export default function Testdata() {
 									type="text"
 									className="form-control h-100"
 									id="random-paragraphs"
-									defaultValue={data.paragraphs}
+									value={data.paragraphs}
+									onChange={() => {}}
 									onClick={handleChange}
 								></textarea>
 							</div>
@@ -256,7 +271,7 @@ export default function Testdata() {
 						type="button"
 						className="btn btn-success"
 						id="gen-random-data-btn"
-						defaultValue="Generate Data"
+						value="Generate Data"
 						onClick={generateData}
 					/>
 				</div>
