@@ -1,0 +1,1028 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TESTING</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./vendors/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      .btn {
+        text-transform: uppercase;
+      }
+
+      .req {
+        padding: 10px;
+        margin: 10px;
+        float: none;
+      }
+
+      .txtarea {
+        height: 25em;
+        width: 50em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container mt-5">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="utility-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#utility-testing"
+            type="button"
+            role="tab"
+            aria-controls="utility-testing"
+            aria-selected="false"
+          >
+            UTILITY
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="test-data-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#test-data-testing"
+            type="button"
+            role="tab"
+            aria-controls="test-data-testing"
+            aria-selected="false"
+          >
+            TEST DATA
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="todo-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#todo-testing"
+            type="button"
+            role="tab"
+            aria-controls="todo-testing"
+            aria-selected="false"
+          >
+            TODO
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="json-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#json-testing"
+            type="button"
+            role="tab"
+            aria-controls="json-testing"
+            aria-selected="false"
+          >
+            JSON
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pubsub-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#pubsub-testing"
+            type="button"
+            role="tab"
+            aria-controls="pubsub-testing"
+            aria-selected="true"
+          >
+            PUBSUB
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="postman-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#postman-testing"
+            type="button"
+            role="tab"
+            aria-controls="postman-testing"
+            aria-selected="false"
+          >
+            POSTMAN
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade mt-3 show active"
+          id="utility-testing"
+          role="tabpanel"
+          aria-labelledby="utility-tab"
+        >
+          <div class="container mt-4">
+            <div class="m-3 row">
+              <label for="util-timestamp" class="col-sm-2 col-form-label"
+                >Timestamp:
+              </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="util-timestamp"
+                  required
+                  readonly
+                />
+              </div>
+              <div class="col-md">
+                <input
+                  type="button"
+                  class="btn btn-primary"
+                  id="gen-util-timestamp-btn"
+                  value="Generate & copy"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label for="conv-util-timestamp" class="col-sm-2 col-form-label"
+                >Convert Timestamp:
+              </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="conv-util-timestamp"
+                  required
+                />
+              </div>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="conv-util-timestamp-result"
+                  readonly
+                />
+              </div>
+              <div class="col-md">
+                <input
+                  type="button"
+                  class="btn btn-primary"
+                  id="conv-util-timestamp-btn"
+                  value="Convert"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label for="util-ip" class="col-sm-2 col-form-label"
+                >Public IP:
+              </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="util-ip"
+                  required
+                  readonly
+                />
+              </div>
+              <div class="col-md">
+                <input
+                  type="button"
+                  class="btn btn-primary"
+                  id="gen-util-ip-btn"
+                  value="GET IP & copy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade mt-3"
+          id="todo-testing"
+          role="tabpanel"
+          aria-labelledby="todo-tab"
+        >
+          <div class="container mt-4">
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Todo Item: </label>
+              <div class="col-md-7">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="todo-text"
+                  required
+                />
+              </div>
+              <div class="col-md">
+                <input
+                  type="button"
+                  class="btn btn-success"
+                  id="todo-add-btn"
+                  value="ADD"
+                />
+                <input
+                  type="button"
+                  class="btn btn-warning"
+                  id="todo-update-btn"
+                  value="UPDATE"
+                />
+                <input
+                  type="button"
+                  class="btn btn-danger"
+                  id="todo-delete-btn"
+                  value="DELETE"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <ul class="list-group" id="todo-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade mt-3"
+          id="test-data-testing"
+          role="tabpanel"
+          aria-labelledby="test-data-tab"
+        >
+          <div class="container mt-4">
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Name: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-name"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Email: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-email"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Street: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-street"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">City: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-city"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">State: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-state"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Company: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-company"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Department: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-department"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Product: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-product"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Phone: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-phone"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Vehicle: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-vehicle"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Password: </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-password"
+                  onselect="copy_to_clipboard(this.id)"
+                />
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Sentences: </label>
+              <div class="col-md">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="random-sentences"
+                  onselect="copy_to_clipboard(this.id)"
+                ></textarea>
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label">Paragraphs: </label>
+              <div class="col-md">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="random-paragraphs"
+                  onselect="copy_to_clipboard(this.id)"
+                ></textarea>
+              </div>
+            </div>
+            <div class="m-3 row">
+              <label class="col-sm-2 col-form-label"
+                >Random Words:
+                <input
+                  type="text"
+                  class="form-control"
+                  id="random-words-count"
+                />
+              </label>
+              <div class="col-md">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="random-words"
+                  onselect="copy_to_clipboard(this.id)"
+                ></textarea>
+              </div>
+            </div>
+            <div class="m-3 row">
+              <input
+                type="button"
+                class="btn btn-success"
+                id="gen-random-data-btn"
+                value="Generate Data"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade mt-3"
+          id="json-testing"
+          role="tabpanel"
+          aria-labelledby="json-tab"
+        >
+          <div class="mb-3 row">
+            <textarea
+              class="form-control col m-1"
+              id="input-json-txt"
+              style="height: 30em"
+              placeholder="Enter your JSON here..."
+            ></textarea>
+            <textarea
+              class="form-control col m-1"
+              id="result-json-txt"
+              style="height: 30em"
+              placeholder="Result..."
+              readonly
+            ></textarea>
+          </div>
+          <div class="mb-3 row">
+            <button
+              type="button"
+              id="stringify-json-btn"
+              class="btn btn-primary col m-1"
+            >
+              Stringify JSON
+            </button>
+            <button
+              type="button"
+              id="parse-json-btn"
+              class="btn btn-primary col m-1"
+            >
+              Parse JSON
+            </button>
+            <button
+              type="button"
+              id="beautify-json-btn"
+              class="btn btn-primary col m-1"
+            >
+              Beautify JSON
+            </button>
+            <button
+              type="button"
+              id="normalise-json-btn"
+              class="btn btn-primary col m-1"
+            >
+              Normalise JSON
+            </button>
+            <button
+              type="button"
+              id="copy-json-btn"
+              class="btn btn-success col m-1"
+            >
+              Copy to Clipboard
+            </button>
+            <button
+              type="button"
+              id="clear-json-btn"
+              class="btn btn-danger col m-1"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade mt-3"
+          id="pubsub-testing"
+          role="tabpanel"
+          aria-labelledby="pubsub-tab"
+        >
+          <form class="row g-3 mt-2">
+            <div class="mb-3 row">
+              <label for="id-value" class="col-sm-2 col-form-label">Id: </label>
+              <div class="col-md">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="id-value"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="transactionid-value" class="col-sm-2 col-form-label"
+                >Transaction Id:
+              </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="transactionid-value"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="timestamp-value" class="col-sm-2 col-form-label"
+                >Timestamp:
+              </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="timestamp-value"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="source-value" class="col-sm-2 col-form-label"
+                >Source:
+              </label>
+              <div class="col-md">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="source-value"
+                  value="CUSTOMER_API"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="message_type"
+                  id="email-noti"
+                  value="email"
+                  checked
+                />
+                <label class="form-check-label" for="email-noti">
+                  Email Notification
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="message_type"
+                  id="push-noti"
+                  value="push"
+                />
+                <label class="form-check-label" for="push-noti">
+                  Push Notification
+                </label>
+              </div>
+            </div>
+
+            <div id="email-notification-tab">
+              <div class="mb-3 row">
+                <label for="subject-value" class="col-sm-2 col-form-label"
+                  >Subject:
+                </label>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="subject-value" />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="email-from-value" class="col-sm-2 col-form-label"
+                  >From:
+                </label>
+                <div class="col-md">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email-from-value"
+                    value="support@w3gig.com"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="email-to-value" class="col-sm-2 col-form-label"
+                  >To:
+                </label>
+                <div class="col-md">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email-to-value"
+                    value="w3gig.qa+engineer@gmail.com"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="to_value" class="col-sm-2 col-form-label"
+                  >Email Type:
+                </label>
+                <div class="col-md">
+                  <select class="form-select" id="email-type" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="WELCOME">WELCOME</option>
+                    <option value="PROFILE_UPDATE">PROFILE_UPDATE</option>
+                    <option value="PROFILE_COMPLETE">PROFILE_COMPLETE</option>
+                    <option value="VALIDATION_START">VALIDATION_START</option>
+                    <option value="ADD_TESTS">ADD_TESTS</option>
+                    <option value="TEST_SUBMISSION">TEST_SUBMISSION</option>
+                    <option value="TEST_MARKS">TEST_MARKS</option>
+                    <option value="INTERVIEW_RESULT">INTERVIEW_RESULT</option>
+                    <option value="VALIDATION_APPROVE">
+                      VALIDATION_APPROVE
+                    </option>
+                    <option value="JOB_PROPOSAL">JOB_PROPOSAL</option>
+                    <option value="JOB_OFFER">JOB_OFFER</option>
+                    <option value="JOB_REJECTED">JOB_REJECTED</option>
+                    <option value="OFFER_ACCEPT">OFFER_ACCEPT</option>
+                    <option value="OFFER_REJECT">OFFER_REJECT</option>
+                    <option value="OFFER_HIRED">OFFER_HIRED</option>
+                    <option value="PROJECT_START">PROJECT_START</option>
+                    <option value="CALENDAR">CALENDAR</option>
+                    <option value="AVAILABILITY">AVAILABILITY</option>
+                    <option value="INTERVIEW">INTERVIEW</option>
+                    <option value="REFERRAL">REFERRAL</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="push-notification-tab" class="d-none">
+              <div class="mb-3 row">
+                <label for="push-message-value" class="col-sm-2 col-form-label"
+                  >Message:
+                </label>
+                <div class="col-md">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="push-message-value"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="push-title-value" class="col-sm-2 col-form-label"
+                  >Title:
+                </label>
+                <div class="col-md">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="push-title-value"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="push-userid-value" class="col-sm-2 col-form-label"
+                  >User Id:
+                </label>
+                <div class="col-md">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="push-userid-value"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="push-type-value" class="col-sm-2 col-form-label"
+                  >Message Type:
+                </label>
+                <div class="col-md">
+                  <select class="form-select" id="push-type-value" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="INFO">INFO</option>
+                    <option value="SUCCESS">SUCCESS</option>
+                    <option value="WARNING">WARNING</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <textarea
+                class="form-control"
+                id="pre-json"
+                style="height: 25em"
+                placeholder="Message.."
+                required
+              ></textarea>
+            </div>
+
+            <button type="button" id="gen-msg-btn" class="btn btn-primary mb-3">
+              Generate Message
+            </button>
+            <button
+              type="button"
+              id="copy-msg-btn"
+              class="btn btn-success col m-1"
+            >
+              Copy to Clipboard
+            </button>
+            <button
+              type="button"
+              id="clear-msg-btn"
+              class="btn btn-danger col m-1"
+            >
+              Clear
+            </button>
+
+            <textarea
+              class="form-control"
+              id="final-output-json"
+              style="height: 30em"
+              placeholder="Message.."
+              readonly
+            ></textarea>
+          </form>
+        </div>
+
+        <div
+          class="tab-pane fade mt-3"
+          id="postman-testing"
+          role="tabpanel"
+          aria-labelledby="postman-tab"
+        >
+          <div class="container">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link active"
+                  id="auth_tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#auth_tab_"
+                  type="button"
+                  role="tab"
+                  aria-controls="auth_tab_"
+                  aria-selected="false"
+                  >AUTHENTICATE</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="get_tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#get_tab_"
+                  type="button"
+                  role="tab"
+                  aria-controls="get_tab_"
+                  aria-selected="false"
+                  >GET</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="post_tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#post_tab_"
+                  type="button"
+                  role="tab"
+                  aria-controls="post_tab_"
+                  aria-selected="false"
+                  >POST</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="put_tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#put_tab_"
+                  type="button"
+                  role="tab"
+                  aria-controls="put_tab_"
+                  aria-selected="false"
+                  >PUT</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="delete_tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#delete_tab_"
+                  type="button"
+                  role="tab"
+                  aria-controls="delete_tab_"
+                  aria-selected="false"
+                  >DELETE</a
+                >
+              </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div
+                id="auth_tab_"
+                class="container tab-pane active"
+                role="tabpanel"
+                aria-labelledby="auth_tab"
+              >
+                <br />
+                <div class="input-group mb-3">
+                  <div class="col">
+                    <input
+                      type="text"
+                      id="username"
+                      class="form-control form-control-lg"
+                      placeholder="Username"
+                      aria-label="First name"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      id="password"
+                      class="form-control form-control-lg"
+                      placeholder="Password"
+                      aria-label="Last name"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="button"
+                      class="form-control form-control-lg btn btn-primary"
+                      id="auth"
+                      value="AUTH"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  id="auth_url"
+                  class="form-control"
+                  aria-label="auth_url_label"
+                  placeholder="Auth URL"
+                />
+                <span id="auth_key"></span>
+              </div>
+
+              <div
+                id="get_tab_"
+                class="container tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="get_tab"
+              >
+                <br />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="get_url_label">URL</span>
+                  <input
+                    type="text"
+                    id="get_url"
+                    class="form-control"
+                    aria-label="get_url_label"
+                  />
+                  <input
+                    type="button"
+                    class="btn btn-success"
+                    id="get"
+                    value="GET"
+                  />
+                </div>
+              </div>
+
+              <div
+                id="post_tab_"
+                class="container tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="post_tab"
+              >
+                <br />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="post_url_label">URL</span>
+                  <input
+                    type="text"
+                    id="post_url"
+                    class="form-control"
+                    aria-label="post_url_label"
+                  />
+                  <input
+                    type="button"
+                    class="btn btn-warning"
+                    id="post"
+                    value="POST"
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group">
+                    <span class="input-group-text">post request body</span>
+                    <code>
+                      <textarea
+                        id="post_body"
+                        class="form-control txtarea"
+                        aria-label="Post request body"
+                      ></textarea>
+                    </code>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="put_tab_"
+                class="container tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="put_tab"
+              >
+                <br />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="put_url_label">URL</span>
+                  <input
+                    type="text"
+                    id="put_url"
+                    class="form-control"
+                    aria-label="put_url_label"
+                  />
+                  <input
+                    type="button"
+                    class="btn btn-info"
+                    id="put"
+                    value="PUT"
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group">
+                    <span class="input-group-text">Put request body</span>
+                    <code>
+                      <textarea
+                        id="put_body"
+                        class="form-control txtarea"
+                        aria-label="Put request body"
+                      ></textarea>
+                    </code>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="delete_tab_"
+                class="container tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="delete_tab"
+              >
+                <br />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="delete_url_label"
+                    >URL</span
+                  >
+                  <input
+                    type="text"
+                    id="delete_url"
+                    class="form-control"
+                    aria-label="delete_url_label"
+                  />
+                  <input
+                    type="button"
+                    class="btn btn-danger"
+                    id="delete"
+                    value="DELETE"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="req">
+            <div class="mb-3">
+              <code>
+                <textarea class="form-control" id="text" rows="50"></textarea>
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./vendors/jquery-3.6.0.min.js"></script>
+    <script src="./vendors/bootstrap.bundle.min.js"></script>
+    <script src="util.js"></script>
+    <script src="postman.js"></script>
+    <script src="pubsub.js"></script>
+    <script src="json.js"></script>
+    <script src="todo.js"></script>
+    <script src="./vendors/faker.js"></script>
+    <script src="test_data.js"></script>
+  </body>
+</html>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Todo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{id}</th>
+      <td>{item}</td>
+    </tr>
+  </tbody>
+</table>
