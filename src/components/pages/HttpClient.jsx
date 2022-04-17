@@ -4,6 +4,12 @@ import HeadersTab from "./http-client-components/HeadersTab";
 import TestsTab from "./http-client-components/TestsTab";
 import BodyTab from "./http-client-components/BodyTab";
 import AuthTab from "./http-client-components/AuthTab";
+import {
+    getRequest,
+    deleteRequest,
+    postRequest,
+    putRequest,
+} from "../../functions/http-methods";
 
 function PostmanTabs({ requestURL }) {
     return (
@@ -128,6 +134,8 @@ function PostmanTabs({ requestURL }) {
 
 export default function HttpClient() {
     const [requestURL, setRequestURL] = React.useState("");
+    const [method, setMethod] = React.useState("GET");
+    const [response, setResponse] = React.useState("");
 
     const changeRequestURL = (e) => {
         e.preventDefault();
@@ -136,6 +144,42 @@ export default function HttpClient() {
 
     const sendRequest = (e) => {
         e.preventDefault();
+        var result = "";
+        switch (method) {
+            case "GET":
+                result = getRequest({ url: requestURL });
+                break;
+            case "POST":
+                result = postRequest({ url: requestURL, data: {} });
+                break;
+            case "PUT":
+                result = putRequest({ url: requestURL, data: {} });
+                break;
+            case "DELETE":
+                result = deleteRequest({ url: requestURL, data: {} });
+                break;
+            default:
+                result = getRequest({ url: requestURL });
+                break;
+        }
+
+        result
+            .then((res) => {
+                let value = "";
+                try {
+                    value = JSON.stringify(res, null, "\t");
+                } catch (error) {
+                    value = error;
+                }
+                setResponse(value);
+            })
+            .catch((error) => {
+                setResponse(error);
+            });
+    };
+
+    const handleChange = (event) => {
+        setMethod(event.target.value);
     };
 
     return (
@@ -148,6 +192,8 @@ export default function HttpClient() {
                             className="form-select"
                             id="request-type"
                             required
+                            value={method}
+                            onChange={handleChange}
                         >
                             <option value="GET">GET</option>
                             <option value="POST">POST</option>
@@ -185,6 +231,8 @@ export default function HttpClient() {
                         id="response-txt"
                         style={{ height: "30em" }}
                         placeholder="RESPONSE"
+                        value={response}
+                        onChange={() => { }}
                     ></textarea>
                 </div>
             </div>
