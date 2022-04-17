@@ -32,6 +32,7 @@ export default function Header() {
                 <HeaderNavItem name={"TEST DATA"} id={"test-data"} />
                 <HeaderNavItem name={"TODO"} id={"todo"} />
                 <HeaderNavItem name={"JSON"} id={"json"} />
+                <HeaderNavItem name={"XML"} id={"xml"} />
                 {/* <HeaderNavItem name={"PUBSUB"} id={"pubsub"} /> */}
                 <HeaderNavItem name={"HTTP CLIENT"} id={"http-client"} />
             </ul>

@@ -5,6 +5,7 @@ import Testdata from "../pages/Testdata";
 import TodoApp from "../pages/Todo";
 import Utility from "../pages/Utility";
 import MyEditor from "../pages/MyEditor";
+import Xml from "../pages/Xml";
 
 function TabContent({ page, id, isActive = false }) {
     return (
@@ -31,6 +32,7 @@ export default function Tabs() {
             <TabContent page={<Testdata />} id="test-data" />
             <TabContent page={<TodoApp />} id="todo" />
             <TabContent page={<Json />} id="json" />
+            <TabContent page={<Xml />} id="xml" />
             {/* <TabContent page={<Pubsub />} id="pubsub"  /> */}
             <TabContent page={<HttpClient />} id="http-client" />
         </div>
