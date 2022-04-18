@@ -34,3 +34,9 @@ a {
 div[data-color-mode="dark"] > div[class="w-tc-editor "] {
   background-color: #161b22 !important;
 }
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
