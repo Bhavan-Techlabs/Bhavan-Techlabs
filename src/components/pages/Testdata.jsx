@@ -1,5 +1,6 @@
 import React from "react";
 import faker from "faker";
+import CopyToClipboard from "../common/CopyToClipboard";
 
 function TestdataComponent({
 	isRandomWord = false,
@@ -9,30 +10,26 @@ function TestdataComponent({
 	datatype,
 	name,
 }) {
-
 	const handleChange = (e) => {
 		e.preventDefault();
-	};
-
-	const copyToClip = (e) => {
-		e.preventDefault();
-		navigator.clipboard.writeText(e.target.value);
 	};
 
 	return (
 		<>
 			{isRandomWord ? (
 				<div className="m-3 row">
-					<label className="col-sm-2 col-form-label m-2">
-						{`${name}: `}
-						<input
-							type="text"
-							className="form-control mt-1"
-							id="random-words-count"
-							value={wordCount}
-							onChange={handleWordCount}
-						/>
-					</label>
+					<div className="col-md-2 m-2 p-2">
+						<label className="col-form-label">
+							{`${name}: `}
+							<input
+								type="text"
+								className="form-control mt-1"
+								id="random-words-count"
+								value={wordCount}
+								onChange={handleWordCount}
+							/>
+						</label>
+					</div>
 					<div className="col-md">
 						<textarea
 							type="text"
@@ -43,18 +40,16 @@ function TestdataComponent({
 						></textarea>
 					</div>
 					<div className="col-auto">
-						<button
-							className="btn btn-outline-dark"
-							title="copy to clipboard"
-							onClick={copyToClip}
-						>
-							<i className="bx bx-clipboard"></i>
-						</button>
+						<CopyToClipboard id={datatype} />
 					</div>
 				</div>
 			) : isTextArea ? (
 				<div className="m-3 row">
-					<label className="col-sm-2 col-form-label m-2">{`${name}: `}</label>
+					<div className="col-md-2 m-2 p-2">
+						<label className="col-form-label">
+							{`${name}: `}
+						</label>
+					</div>
 					<div className="col-md">
 						<textarea
 							type="text"
@@ -65,18 +60,16 @@ function TestdataComponent({
 						></textarea>
 					</div>
 					<div className="col-auto">
-						<button
-							className="btn btn-outline-dark"
-							title="copy to clipboard"
-							onClick={copyToClip}
-						>
-							<i className="bx bx-clipboard"></i>
-						</button>
+						<CopyToClipboard id={datatype} />
 					</div>
 				</div>
 			) : (
 				<div className="m-3 row">
-					<label className="col-sm-2 col-form-label m-2">{`${name}: `}</label>
+					<div className="col-md-2 m-2 p-2">
+						<label className="col-form-label">
+							{`${name}: `}
+						</label>
+					</div>
 					<div className="col-md">
 						<input
 							type="text"
@@ -87,13 +80,7 @@ function TestdataComponent({
 						/>
 					</div>
 					<div className="col-auto">
-						<button
-							className="btn btn-outline-dark"
-							title="copy to clipboard"
-							onClick={copyToClip}
-						>
-							<i className="bx bx-clipboard"></i>
-						</button>
+						<CopyToClipboard id={datatype} />
 					</div>
 				</div>
 			)}
