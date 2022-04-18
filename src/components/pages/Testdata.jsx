@@ -1,6 +1,7 @@
 import React from "react";
 import faker from "faker";
 import CopyToClipboard from "../common/CopyToClipboard";
+import AccordionItem from "../common/AccordionItem";
 
 function TestdataComponent({
     isRandomWord = false,
@@ -18,7 +19,7 @@ function TestdataComponent({
     return (
         <>
             {isRandomWord ? (
-                <div className="m-3 row">
+                <div className="row align-items-center">
                     <div className="col-md-2 m-2 p-2">
                         <label className="col-form-label">
                             {`${name}: `}
@@ -45,7 +46,7 @@ function TestdataComponent({
                     </div>
                 </div>
             ) : isTextArea ? (
-                <div className="m-3 row">
+                <div className="row align-items-center">
                     <div className="col-md-2 m-2 p-2">
                         <label className="col-form-label">{`${name}: `}</label>
                     </div>
@@ -63,7 +64,7 @@ function TestdataComponent({
                     </div>
                 </div>
             ) : (
-                <div className="m-3 row">
+                <div className="row align-items-center">
                     <div className="col-md-2 m-2 p-2">
                         <label className="col-form-label">{`${name}: `}</label>
                     </div>
@@ -135,7 +136,7 @@ export default function Testdata() {
     return (
         <>
             <div className="container mt-4">
-                <div className="row">
+                <div className="p-3 row">
                     <input
                         type="button"
                         className="btn btn-outline-secondary"
@@ -145,181 +146,227 @@ export default function Testdata() {
                     />
                 </div>
                 <div className="row">
-                    <div className="col">
-                        <TestdataComponent
-                            name={"Name"}
-                            datatype={"dataname"}
-                            data={data.name}
+                    <div className="accordion">
+                        <AccordionItem
+                            accordion_header_id={"common"}
+                            accordion_collapse_id={"common-collapse"}
+                            accordion_header_title={"Common"}
+                            accordion_body={
+                                <>
+                                    <TestdataComponent
+                                        name={"Name"}
+                                        datatype={"dataname"}
+                                        data={data.name}
+                                    />
+                                    <TestdataComponent
+                                        name={"Email"}
+                                        datatype={"dataemail"}
+                                        data={data.email}
+                                    />
+                                    <TestdataComponent
+                                        name={"Password"}
+                                        datatype={"datapassword"}
+                                        data={data.password}
+                                    />
+                                    <TestdataComponent
+                                        name={"Timezone"}
+                                        datatype={"datatimezone"}
+                                        data={data.timezone}
+                                    />
+                                    <TestdataComponent
+                                        name={"Phone"}
+                                        datatype={"dataphone"}
+                                        data={data.phone}
+                                    />
+                                </>
+                            }
+                            show={true}
                         />
-                        <TestdataComponent
-                            name={"Email"}
-                            datatype={"dataemail"}
-                            data={data.email}
+                        <AccordionItem
+                            accordion_header_id={"internet"}
+                            accordion_collapse_id={"internet-collapse"}
+                            accordion_header_title={"Internet"}
+                            accordion_body={
+                                <>
+                                    <TestdataComponent
+                                        name={"Street"}
+                                        datatype={"datastreet"}
+                                        data={data.street}
+                                    />
+                                    <TestdataComponent
+                                        name={"City"}
+                                        datatype={"datacity"}
+                                        data={data.city}
+                                    />
+                                    <TestdataComponent
+                                        name={"Country"}
+                                        datatype={"datacountry"}
+                                        data={data.country}
+                                    />
+                                    <TestdataComponent
+                                        name={"State"}
+                                        datatype={"datastate"}
+                                        data={data.state}
+                                    />
+                                    <TestdataComponent
+                                        name={"Address"}
+                                        datatype={"dataaddress"}
+                                        data={data.address}
+                                    />
+                                </>
+                            }
                         />
-                        <TestdataComponent
-                            name={"Password"}
-                            datatype={"datapassword"}
-                            data={data.password}
+                        <AccordionItem
+                            accordion_header_id={"commerce"}
+                            accordion_collapse_id={"commerce-collapse"}
+                            accordion_header_title={"Commerce"}
+                            accordion_body={
+                                <>
+                                    <TestdataComponent
+                                        name={"Company"}
+                                        datatype={"datacompany"}
+                                        data={data.company}
+                                    />
+                                    <TestdataComponent
+                                        name={"Department"}
+                                        datatype={"datadepartment"}
+                                        data={data.department}
+                                    />
+                                    <TestdataComponent
+                                        name={"Product"}
+                                        datatype={"dataproduct"}
+                                        data={data.product}
+                                    />
+                                    <TestdataComponent
+                                        name={"Vehicle"}
+                                        datatype={"datavehicle"}
+                                        data={data.vehicle}
+                                    />
+                                    <TestdataComponent
+                                        name={"File Name"}
+                                        datatype={"datafileName"}
+                                        data={data.fileName}
+                                    />
+                                    <TestdataComponent
+                                        name={"File EXT"}
+                                        datatype={"datafileExt"}
+                                        data={data.fileExt}
+                                    />
+                                    <TestdataComponent
+                                        name={"File Type"}
+                                        datatype={"datafileType"}
+                                        data={data.fileType}
+                                    />
+                                    <TestdataComponent
+                                        name={"Bitcoin"}
+                                        datatype={"databitcoinAddress"}
+                                        data={data.bitcoinAddress}
+                                    />
+                                </>
+                            }
                         />
-                        <TestdataComponent
-                            name={"Timezone"}
-                            datatype={"datatimezone"}
-                            data={data.timezone}
+                        <AccordionItem
+                            accordion_header_id={"product"}
+                            accordion_collapse_id={"product-collapse"}
+                            accordion_header_title={"Product"}
+                            accordion_body={
+                                <>
+                                    <TestdataComponent
+                                        isRandomWord={true}
+                                        name={"Random Letters Count"}
+                                        datatype={"datawords"}
+                                        data={data.words}
+                                        wordCount={wordCount}
+                                        handleWordCount={(e) => {
+                                            setWordCount(
+                                                Number(e.target.value)
+                                            );
+                                        }}
+                                    />{" "}
+                                    <TestdataComponent
+                                        name={"Sentences"}
+                                        datatype={"datasentences"}
+                                        data={data.sentences}
+                                        isTextArea={true}
+                                    />
+                                    <TestdataComponent
+                                        name={"Paragraphs"}
+                                        datatype={"dataparagraphs"}
+                                        data={data.paragraphs}
+                                        isTextArea={true}
+                                    />
+                                    <TestdataComponent
+                                        name={"UUID"}
+                                        datatype={"datauuid"}
+                                        data={data.uuid}
+                                    />
+                                    <TestdataComponent
+                                        name={"Job Title"}
+                                        datatype={"datajobTitle"}
+                                        data={data.jobTitle}
+                                    />{" "}
+                                    <TestdataComponent
+                                        name={"Job Type"}
+                                        datatype={"data.jobType"}
+                                        data={data.jobType}
+                                    />
+                                </>
+                            }
                         />
-                        <TestdataComponent
-                            name={"Phone"}
-                            datatype={"dataphone"}
-                            data={data.phone}
-                        />
-                        <TestdataComponent
-                            name={"Street"}
-                            datatype={"datastreet"}
-                            data={data.street}
-                        />
-                        <TestdataComponent
-                            name={"City"}
-                            datatype={"datacity"}
-                            data={data.city}
-                        />
-                        <TestdataComponent
-                            name={"Country"}
-                            datatype={"datacountry"}
-                            data={data.country}
-                        />
-                        <TestdataComponent
-                            name={"State"}
-                            datatype={"datastate"}
-                            data={data.state}
-                        />
-                        <TestdataComponent
-                            name={"Address"}
-                            datatype={"dataaddress"}
-                            data={data.address}
-                        />
-                        <TestdataComponent
-                            name={"Company"}
-                            datatype={"datacompany"}
-                            data={data.company}
-                        />
-                        <TestdataComponent
-                            name={"Department"}
-                            datatype={"datadepartment"}
-                            data={data.department}
-                        />
-                        <TestdataComponent
-                            name={"Product"}
-                            datatype={"dataproduct"}
-                            data={data.product}
-                        />
-                        <TestdataComponent
-                            name={"Vehicle"}
-                            datatype={"datavehicle"}
-                            data={data.vehicle}
-                        />
-                        <TestdataComponent
-                            name={"File Name"}
-                            datatype={"datafileName"}
-                            data={data.fileName}
-                        />
-                        <TestdataComponent
-                            name={"File EXT"}
-                            datatype={"datafileExt"}
-                            data={data.fileExt}
-                        />
-                        <TestdataComponent
-                            name={"File Type"}
-                            datatype={"datafileType"}
-                            data={data.fileType}
-                        />
-                        <TestdataComponent
-                            name={"Bitcoin"}
-                            datatype={"databitcoinAddress"}
-                            data={data.bitcoinAddress}
-                        />
-                    </div>
-                    <div className="col">
-                        <TestdataComponent
-                            isRandomWord={true}
-                            name={"Random Letters Count"}
-                            datatype={"datawords"}
-                            data={data.words}
-                            wordCount={wordCount}
-                            handleWordCount={(e) => {
-                                setWordCount(Number(e.target.value));
-                            }}
-                        />
-                        <TestdataComponent
-                            name={"Sentences"}
-                            datatype={"datasentences"}
-                            data={data.sentences}
-                            isTextArea={true}
-                        />
-                        <TestdataComponent
-                            name={"Paragraphs"}
-                            datatype={"dataparagraphs"}
-                            data={data.paragraphs}
-                            isTextArea={true}
-                        />
-                        <TestdataComponent
-                            name={"UUID"}
-                            datatype={"datauuid"}
-                            data={data.uuid}
-                        />
-                        <TestdataComponent
-                            name={"Job Title"}
-                            datatype={"datajobTitle"}
-                            data={data.jobTitle}
-                        />
-                        <TestdataComponent
-                            name={"Job Type"}
-                            datatype={"data.jobType"}
-                            data={data.jobType}
-                        />
-                        <TestdataComponent
-                            name={"Job Descriptor"}
-                            datatype={"datajobDescriptor"}
-                            data={data.jobDescriptor}
-                        />
-                        <TestdataComponent
-                            name={"Username"}
-                            datatype={"datauserName"}
-                            data={data.userName}
-                        />
-                        <TestdataComponent
-                            name={"URL"}
-                            datatype={"dataurl"}
-                            data={data.url}
-                        />
-                        <TestdataComponent
-                            name={"Prefix"}
-                            datatype={"dataprefix"}
-                            data={data.prefix}
-                        />
-                        <TestdataComponent
-                            name={"Title"}
-                            datatype={"datatitle"}
-                            data={data.title}
-                        />
-                        <TestdataComponent
-                            name={"Genre"}
-                            datatype={"datagenre"}
-                            data={data.genre}
-                        />
-                        <TestdataComponent
-                            name={"Color"}
-                            datatype={"datacolor"}
-                            data={data.color}
-                        />
-                        <TestdataComponent
-                            name={"CC No"}
-                            datatype={"datacreditCardNumber"}
-                            data={data.creditCardNumber}
-                        />
-                        <TestdataComponent
-                            name={"Transaction Description"}
-                            datatype={"datatransactionDescription"}
-                            data={data.transactionDescription}
-                            isTextArea={true}
+                        <AccordionItem
+                            accordion_header_id={"random"}
+                            accordion_collapse_id={"random-collapse"}
+                            accordion_header_title={"Random"}
+                            accordion_body={
+                                <>
+                                    <TestdataComponent
+                                        name={"Job Descriptor"}
+                                        datatype={"datajobDescriptor"}
+                                        data={data.jobDescriptor}
+                                    />
+                                    <TestdataComponent
+                                        name={"Username"}
+                                        datatype={"datauserName"}
+                                        data={data.userName}
+                                    />
+                                    <TestdataComponent
+                                        name={"URL"}
+                                        datatype={"dataurl"}
+                                        data={data.url}
+                                    />
+                                    <TestdataComponent
+                                        name={"Prefix"}
+                                        datatype={"dataprefix"}
+                                        data={data.prefix}
+                                    />
+                                    <TestdataComponent
+                                        name={"Title"}
+                                        datatype={"datatitle"}
+                                        data={data.title}
+                                    />
+                                    <TestdataComponent
+                                        name={"Genre"}
+                                        datatype={"datagenre"}
+                                        data={data.genre}
+                                    />
+                                    <TestdataComponent
+                                        name={"Color"}
+                                        datatype={"datacolor"}
+                                        data={data.color}
+                                    />
+                                    <TestdataComponent
+                                        name={"CC No"}
+                                        datatype={"datacreditCardNumber"}
+                                        data={data.creditCardNumber}
+                                    />
+                                    <TestdataComponent
+                                        name={"Transaction Description"}
+                                        datatype={"datatransactionDescription"}
+                                        data={data.transactionDescription}
+                                        isTextArea={true}
+                                    />
+                                </>
+                            }
                         />
                     </div>
                 </div>
