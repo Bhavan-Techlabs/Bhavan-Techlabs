@@ -1,13 +1,15 @@
 import React from "react";
+import CopyToClipboard from "../common/CopyToClipboard";
+
 
 function Todo({ todo, index, removeTodo }) {
 	return (
 		<div className="list-group list-group-numbered">
 			<div className="row">
 				<div className="col-10">
-					<li className="list-group-item">{todo}</li>
+					<input className="list-group-item w-100" id={`todo-item-${index}`} defaultValue={todo}/>
 				</div>
-				<div className="col-2">
+				<div className="col-auto">
 					<button
 						type="button"
 						className="btn btn-outline-danger"
@@ -15,6 +17,9 @@ function Todo({ todo, index, removeTodo }) {
 					>
 						<i className="bx bx-minus-circle"></i>
 					</button>
+				</div>
+				<div className="col-auto">
+					<CopyToClipboard id={`todo-item-${index}`} />
 				</div>
 			</div>
 		</div>
