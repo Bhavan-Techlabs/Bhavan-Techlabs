@@ -3,23 +3,20 @@ import PropTypes from "prop-types";
 import main_img from "../../../assets/images/main_img.webp";
 import LightSwitch from "../../common/LightSwitch";
 
-async function loginUser(credentials) {
-    return fetch("http://localhost:8080/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-    }).then((data) => data.json());
+function loginUser(credentials) {
+    return credentials.username.trim() === "admin" &&
+        credentials.password.trim() === "PwaZFV_DCr2jyA6"
+        ? { token: "123" }
+        : {};
 }
 
 export default function Login({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const token = await loginUser({
+        const token = loginUser({
             username,
             password,
         });
@@ -53,14 +50,12 @@ export default function Login({ setToken }) {
                                             style={{ fontSize: "xx-large" }}
                                         ></i>
                                     </button>
-
                                     <button type="button" className="btn">
                                         <i
                                             className="bx bxl-twitter"
                                             style={{ fontSize: "xx-large" }}
                                         ></i>
                                     </button>
-
                                     <button type="button" className="btn">
                                         <i
                                             className="bx bxl-google"
@@ -68,17 +63,15 @@ export default function Login({ setToken }) {
                                         ></i>
                                     </button>
                                 </div>
-
                                 <div className="divider d-flex align-items-center my-4">
                                     <p className="text-center fw-bold mx-3 mb-0">
                                         Or
                                     </p>
                                 </div>
-
                                 <div className="form-floating form-outline mb-4">
                                     <input
                                         type="text"
-                                        id="form3Example3"
+                                        id="username"
                                         className="form-control form-control-lg"
                                         placeholder="Enter a valid email address"
                                         onChange={(e) =>
@@ -87,16 +80,16 @@ export default function Login({ setToken }) {
                                     />
                                     <label
                                         className="form-label"
-                                        htmlFor="form3Example3"
+                                        htmlFor="username"
                                     >
                                         Username
                                     </label>
+                                    admin
                                 </div>
-
                                 <div className="form-floating form-outline mb-3">
                                     <input
                                         type="password"
-                                        id="form3Example4"
+                                        id="password"
                                         autoComplete="on"
                                         className="form-control form-control-lg"
                                         placeholder="Enter password"
@@ -106,32 +99,41 @@ export default function Login({ setToken }) {
                                     />
                                     <label
                                         className="form-label"
-                                        htmlFor="form3Example4"
+                                        htmlFor="password"
                                     >
                                         Password
                                     </label>
+                                    PwaZFV_DCr2jyA6
                                 </div>
-
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="form-check mb-0">
                                         <input
                                             className="form-check-input me-2"
                                             type="checkbox"
-                                            value=""
-                                            id="form2Example3"
+                                            id="rememberme"
+                                            onChange={() => {
+                                                var x =
+                                                    document.getElementById(
+                                                        "password"
+                                                    );
+                                                if (x.type === "password") {
+                                                    x.type = "text";
+                                                } else {
+                                                    x.type = "password";
+                                                }
+                                            }}
                                         />
                                         <label
                                             className="form-check-label"
-                                            htmlFor="form2Example3"
+                                            htmlFor="rememberme"
                                         >
                                             Remember me
                                         </label>
                                     </div>
-                                    <a href="#!" className="text-body">
+                                    <a href="/" className="text-body">
                                         Forgot password?
                                     </a>
                                 </div>
-
                                 <div className="text-center text-lg-start mt-4 pt-2">
                                     <button
                                         type="submit"
