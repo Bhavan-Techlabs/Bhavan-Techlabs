@@ -113,7 +113,6 @@ export default function Testdata() {
             jobType: faker.name.jobType(),
             jobDescriptor: faker.name.jobDescriptor(),
             prefix: faker.name.prefix(),
-            title: faker.name.title(),
             genre: faker.music.genre(),
             userName: faker.internet.userName(),
             url: faker.internet.url(),
@@ -148,9 +147,9 @@ export default function Testdata() {
                 <div className="row">
                     <div className="accordion">
                         <AccordionItem
-                            accordion_header_id={"common"}
-                            accordion_collapse_id={"common-collapse"}
-                            accordion_header_title={"Common"}
+                            accordion_header_id={"user-details"}
+                            accordion_collapse_id={"user-details-collapse"}
+                            accordion_header_title={"User details"}
                             accordion_body={
                                 <>
                                     <TestdataComponent
@@ -178,16 +177,31 @@ export default function Testdata() {
                                         datatype={"dataphone"}
                                         data={data.phone}
                                     />
+                                    <TestdataComponent
+                                        name={"Job Title"}
+                                        datatype={"datajobTitle"}
+                                        data={data.jobTitle}
+                                    />{" "}
+                                    <TestdataComponent
+                                        name={"Job Type"}
+                                        datatype={"data.jobType"}
+                                        data={data.jobType}
+                                    />
                                 </>
                             }
                             show={true}
                         />
                         <AccordionItem
-                            accordion_header_id={"internet"}
-                            accordion_collapse_id={"internet-collapse"}
-                            accordion_header_title={"Internet"}
+                            accordion_header_id={"address"}
+                            accordion_collapse_id={"address-collapse"}
+                            accordion_header_title={"Address"}
                             accordion_body={
                                 <>
+                                    <TestdataComponent
+                                        name={"Address"}
+                                        datatype={"dataaddress"}
+                                        data={data.address}
+                                    />
                                     <TestdataComponent
                                         name={"Street"}
                                         datatype={"datastreet"}
@@ -207,11 +221,6 @@ export default function Testdata() {
                                         name={"State"}
                                         datatype={"datastate"}
                                         data={data.state}
-                                    />
-                                    <TestdataComponent
-                                        name={"Address"}
-                                        datatype={"dataaddress"}
-                                        data={data.address}
                                     />
                                 </>
                             }
@@ -242,6 +251,15 @@ export default function Testdata() {
                                         datatype={"datavehicle"}
                                         data={data.vehicle}
                                     />
+                                </>
+                            }
+                        />
+                        <AccordionItem
+                            accordion_header_id={"system"}
+                            accordion_collapse_id={"system-collapse"}
+                            accordion_header_title={"System"}
+                            accordion_body={
+                                <>
                                     <TestdataComponent
                                         name={"File Name"}
                                         datatype={"datafileName"}
@@ -262,13 +280,28 @@ export default function Testdata() {
                                         datatype={"databitcoinAddress"}
                                         data={data.bitcoinAddress}
                                     />
+                                    <TestdataComponent
+                                        name={"Color"}
+                                        datatype={"datacolor"}
+                                        data={data.color}
+                                    />
+                                    <TestdataComponent
+                                        name={"UUID"}
+                                        datatype={"datauuid"}
+                                        data={data.uuid}
+                                    />
+                                    <TestdataComponent
+                                        name={"URL"}
+                                        datatype={"dataurl"}
+                                        data={data.url}
+                                    />
                                 </>
                             }
                         />
                         <AccordionItem
-                            accordion_header_id={"product"}
-                            accordion_collapse_id={"product-collapse"}
-                            accordion_header_title={"Product"}
+                            accordion_header_id={"random"}
+                            accordion_collapse_id={"random-collapse"}
+                            accordion_header_title={"Random"}
                             accordion_body={
                                 <>
                                     <TestdataComponent
@@ -296,30 +329,6 @@ export default function Testdata() {
                                         isTextArea={true}
                                     />
                                     <TestdataComponent
-                                        name={"UUID"}
-                                        datatype={"datauuid"}
-                                        data={data.uuid}
-                                    />
-                                    <TestdataComponent
-                                        name={"Job Title"}
-                                        datatype={"datajobTitle"}
-                                        data={data.jobTitle}
-                                    />{" "}
-                                    <TestdataComponent
-                                        name={"Job Type"}
-                                        datatype={"data.jobType"}
-                                        data={data.jobType}
-                                    />
-                                </>
-                            }
-                        />
-                        <AccordionItem
-                            accordion_header_id={"random"}
-                            accordion_collapse_id={"random-collapse"}
-                            accordion_header_title={"Random"}
-                            accordion_body={
-                                <>
-                                    <TestdataComponent
                                         name={"Job Descriptor"}
                                         datatype={"datajobDescriptor"}
                                         data={data.jobDescriptor}
@@ -330,29 +339,14 @@ export default function Testdata() {
                                         data={data.userName}
                                     />
                                     <TestdataComponent
-                                        name={"URL"}
-                                        datatype={"dataurl"}
-                                        data={data.url}
-                                    />
-                                    <TestdataComponent
                                         name={"Prefix"}
                                         datatype={"dataprefix"}
                                         data={data.prefix}
                                     />
                                     <TestdataComponent
-                                        name={"Title"}
-                                        datatype={"datatitle"}
-                                        data={data.title}
-                                    />
-                                    <TestdataComponent
                                         name={"Genre"}
                                         datatype={"datagenre"}
                                         data={data.genre}
-                                    />
-                                    <TestdataComponent
-                                        name={"Color"}
-                                        datatype={"datacolor"}
-                                        data={data.color}
                                     />
                                     <TestdataComponent
                                         name={"CC No"}

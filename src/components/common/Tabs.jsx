@@ -13,7 +13,9 @@ function TabContent({ page, id, isActive = false }) {
         <>
             <div
                 className={
-                    isActive ? "tab-pane fade mt-3 show active" : "tab-pane fade mt-3"
+                    isActive
+                        ? "tab-pane fade mt-3 show active"
+                        : "tab-pane fade mt-3"
                 }
                 id={`${id}-testing`}
                 role="tabpanel"
@@ -28,8 +30,12 @@ function TabContent({ page, id, isActive = false }) {
 export default function Tabs() {
     return (
         <div className="tab-content" id="myTabContent">
-            <TabContent page={<TextEditor />} id="text-editor" isActive={true} />
-            <TabContent page={<MyCodeEditor />} id="code-editor" isActive={true} />
+            <TabContent
+                page={<TextEditor />}
+                id="text-editor"
+                isActive={true}
+            />
+            <TabContent page={<MyCodeEditor />} id="code-editor" />
             <TabContent page={<Utility />} id="utility" />
             <TabContent page={<Testdata />} id="test-data" />
             <TabContent page={<TodoApp />} id="todo" />
