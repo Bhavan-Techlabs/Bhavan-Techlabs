@@ -21,7 +21,7 @@ function uploadImageCallBack(file) {
     });
 }
 
-export default function MyEditor() {
+export default function TextEditor() {
     const [editorState, setEditorState] = React.useState(() =>
         EditorState.createEmpty()
     );

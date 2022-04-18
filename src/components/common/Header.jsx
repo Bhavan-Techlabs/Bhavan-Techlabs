@@ -28,6 +28,7 @@ export default function Header() {
                     id={"text-editor"}
                     isActive={true}
                 />
+                <HeaderNavItem name={"CODE EDITOR"} id={"code-editor"} />
                 <HeaderNavItem name={"UTILITY"} id={"utility"} />
                 <HeaderNavItem name={"TEST DATA"} id={"test-data"} />
                 <HeaderNavItem name={"TODO"} id={"todo"} />
