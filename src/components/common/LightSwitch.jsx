@@ -1,4 +1,27 @@
+import React from "react";
+
 export default function LightSwitch() {
+    const [switchCheck, setSwitchCheck] = React.useState(false);
+
+    const handleSwitchChange = () => {
+        setSwitchCheck(!switchCheck);
+        let body = document.querySelector("body");
+        let nav = document.querySelector("nav");
+        try {
+            if (switchCheck) {
+                body.classList.remove("bg-dark", "text-light");
+                body.classList.add("bg-light", "text-dark");
+                nav.classList.remove("navbar-dark", "bg-dark");
+                nav.classList.add("navbar-light", "bg-light");
+            } else {
+                body.classList.remove("bg-light", "text-dark");
+                body.classList.add("bg-dark", "text-light");
+                nav.classList.remove("navbar-light", "bg-light");
+                nav.classList.add("navbar-dark", "bg-dark");
+            }
+        } catch (error) {}
+    };
+
     return (
         <>
             <div className="form-check form-switch ms-auto mt-2 me-3">
@@ -18,6 +41,8 @@ export default function LightSwitch() {
                     className="form-check-input"
                     type="checkbox"
                     id="lightSwitch"
+                    checked={switchCheck}
+                    onChange={handleSwitchChange}
                 />
             </div>
         </>
