@@ -1,42 +1,54 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .btn {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .req {
-  padding: 10px;
-  margin: 10px;
-  float: none;
+    padding: 10px;
+    margin: 10px;
+    float: none;
 }
 
 .txtarea {
-  height: 25em;
-  width: 50em;
+    height: 25em;
+    width: 50em;
 }
 
 a {
-  text-decoration: auto !important;
+    text-decoration: auto !important;
 }
 
 .rdw-editor-main {
-  height: 25em;
-  background-color: aliceblue;
+    height: 25em;
+    background-color: aliceblue;
 }
 
 div[data-color-mode="dark"] > div[class="w-tc-editor "] {
-  background-color: #161b22 !important;
+    background-color: #161b22 !important;
 }
 
-.login-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
 }
