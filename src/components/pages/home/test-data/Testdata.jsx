@@ -1,7 +1,7 @@
 import React from "react";
 import faker from "faker";
-import CopyToClipboard from "../common/CopyToClipboard";
-import AccordionItem from "../common/AccordionItem";
+import CopyToClipboard from "../../../common/CopyToClipboard";
+import AccordionItem from "../../../common/AccordionItem";
 
 function TestdataComponent({
     isRandomWord = false,

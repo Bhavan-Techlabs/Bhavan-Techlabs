@@ -16,3 +16,14 @@ export default function CopyToClipboard({ selector }) {
         </>
     );
 }
+
+export function copy_to_clipboard_by_selector(selector) {
+    var copyText = document.querySelector(selector);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+}
+
+export function copy_to_clipboard_by_value(value) {
+    navigator.clipboard.writeText(value);
+}

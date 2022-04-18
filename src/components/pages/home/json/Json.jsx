@@ -1,5 +1,5 @@
 import React from "react";
-import { copy_to_clipboard } from "../../functions/util";
+import { copy_to_clipboard_by_value } from "../../../common/CopyToClipboard";
 
 export default function Json() {
     const [inputJsonValue, setInputJsonValue] = React.useState("");
@@ -47,7 +47,7 @@ export default function Json() {
     };
 
     const copy_json = () => {
-        copy_to_clipboard("result-json-txt");
+        copy_to_clipboard_by_value(outputJsonValue);
     };
 
     const clear_json = () => {

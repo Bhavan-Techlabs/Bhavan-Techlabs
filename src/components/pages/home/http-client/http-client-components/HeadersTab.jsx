@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../../common/Modal";
+import Modal from "../../../../common/Modal";
 
 function addNewHeaderModalBody() {
     return (
@@ -10,13 +10,21 @@ function addNewHeaderModalBody() {
                         <label htmlFor="header-content" className="form-label">
                             Header
                         </label>
-                        <input type="text" className="form-control" id="header-content" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="header-content"
+                        />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="header-value" className="form-label">
                             Value
                         </label>
-                        <input type="text" className="form-control" id="header-value" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="header-value"
+                        />
                     </div>
                 </div>
             </div>
@@ -88,7 +96,12 @@ export default function HeadersTab() {
         let i = 0;
         for (const prop in headers) {
             content.push(
-                <Header key={++i} id={++i} header={prop} header_value={headers[prop]} />
+                <Header
+                    key={++i}
+                    id={++i}
+                    header={prop}
+                    header_value={headers[prop]}
+                />
             );
         }
         return content;

@@ -1,6 +1,6 @@
 import React from "react";
-import { get_ip, timestamp } from "../../functions/util";
-import CopyToClipboard from "../common/CopyToClipboard";
+import { get_ip, timestamp } from "./UtilityMethods";
+import CopyToClipboard from "../../../common/CopyToClipboard";
 
 function Timestamp() {
     const [ts, setTs] = React.useState(0);
@@ -38,11 +38,12 @@ function Timestamp() {
                 />
             </div>
             <div className="col-md-2">
-                <CopyToClipboard selector={'#util-timestamp'} />
+                <CopyToClipboard selector={"#util-timestamp"} />
             </div>
         </>
     );
 }
+
 function ConvertTimestamp() {
     const [ts, setTs] = React.useState(0);
     const [convertedTs, setConvertedTs] = React.useState("");
@@ -100,6 +101,7 @@ function ConvertTimestamp() {
         </>
     );
 }
+
 function IP() {
     const [ip, setIp] = React.useState("");
 

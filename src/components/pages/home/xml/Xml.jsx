@@ -1,6 +1,6 @@
 import React from "react";
 import format from "xml-formatter";
-import { copy_to_clipboard } from "../../functions/util";
+import { copy_to_clipboard_by_value } from "../../../common/CopyToClipboard";
 
 export default function Xml() {
     const [inputXmlValue, setInputXmlValue] = React.useState("");
@@ -22,7 +22,7 @@ export default function Xml() {
     };
 
     const copy_xml = () => {
-        copy_to_clipboard("result-xml-txt");
+        copy_to_clipboard_by_value(outputXmlValue);
     };
 
     const clear_xml = () => {

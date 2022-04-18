@@ -1,6 +1,6 @@
 import React from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
-import CopyToClipboard from "../common/CopyToClipboard";
+import CopyToClipboard from "../../../common/CopyToClipboard";
 
 export default function MyCodeEditor() {
     const [code, setCode] = React.useState(

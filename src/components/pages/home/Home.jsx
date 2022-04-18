@@ -1,8 +1,8 @@
-import Header from "./Header";
-import Tabs from "./Tabs";
-import TopNavBar from "./TopNavBar";
+import Header from "./main/Header";
+import Tabs from "./main/Tabs";
+import TopNavBar from "./main/TopNavBar";
 
-export default function Main() {
+export default function Home() {
     return (
         <>
             <TopNavBar />

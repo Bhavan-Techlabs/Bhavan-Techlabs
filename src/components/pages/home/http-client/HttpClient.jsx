@@ -9,7 +9,7 @@ import {
     deleteRequest,
     postRequest,
     putRequest,
-} from "../../functions/http-methods";
+} from "./HttpClientMethods";
 
 function PostmanTabs({ requestURL }) {
     return (
@@ -231,7 +231,7 @@ export default function HttpClient() {
                         style={{ height: "30em" }}
                         placeholder="RESPONSE"
                         value={response}
-                        onChange={() => { }}
+                        onChange={() => {}}
                     ></textarea>
                 </div>
             </div>

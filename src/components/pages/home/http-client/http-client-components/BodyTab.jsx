@@ -1,6 +1,6 @@
 import React from "react";
 import format from "xml-formatter";
-import Modal from "../../common/Modal";
+import Modal from "../../../../common/Modal";
 
 function addNewFormFieldModalBody({ id }) {
     return (
@@ -8,7 +8,10 @@ function addNewFormFieldModalBody({ id }) {
             <div className="card">
                 <div className="card-body">
                     <div className="mb-3">
-                        <label htmlFor={`form-fields-content-${id}`} className="form-label">
+                        <label
+                            htmlFor={`form-fields-content-${id}`}
+                            className="form-label"
+                        >
                             Field Name
                         </label>
                         <input
@@ -18,7 +21,10 @@ function addNewFormFieldModalBody({ id }) {
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor={`form-fields-value-${id}`} className="form-label">
+                        <label
+                            htmlFor={`form-fields-value-${id}`}
+                            className="form-label"
+                        >
                             Value
                         </label>
                         <input
@@ -273,7 +279,10 @@ export default function BodyTab() {
                                     value={jsonBodyValue}
                                     onChange={handle_json_body}
                                 ></textarea>
-                                <button className="btn btn-outline-info" onClick={formatJson}>
+                                <button
+                                    className="btn btn-outline-info"
+                                    onClick={formatJson}
+                                >
                                     format
                                 </button>
                             </div>
@@ -296,7 +305,10 @@ export default function BodyTab() {
                                     value={xmlBodyValue}
                                     onChange={handle_xml_body}
                                 ></textarea>
-                                <button className="btn btn-outline-info" onClick={formatXML}>
+                                <button
+                                    className="btn btn-outline-info"
+                                    onClick={formatXML}
+                                >
                                     format
                                 </button>
                             </div>
@@ -329,7 +341,11 @@ export default function BodyTab() {
                         <div className="card">
                             <div className="card-header">Form</div>
                             <div className="card-body">
-                                <FormTab id={"1"} name="Form Fields" formFields={{}} />
+                                <FormTab
+                                    id={"1"}
+                                    name="Form Fields"
+                                    formFields={{}}
+                                />
                             </div>
                         </div>
                     </div>
@@ -342,7 +358,11 @@ export default function BodyTab() {
                         <div className="card">
                             <div className="card-header">Form-Encode</div>
                             <div className="card-body">
-                                <FormTab id={"2"} name="Form Encoded" formFields={{}} />
+                                <FormTab
+                                    id={"2"}
+                                    name="Form Encoded"
+                                    formFields={{}}
+                                />
                             </div>
                         </div>
                     </div>
@@ -356,7 +376,11 @@ export default function BodyTab() {
                             <div className="card-header">Binary</div>
                             <div className="card-body">
                                 <div className="input-group mb-3">
-                                    <input type="file" className="form-control" id="binary-file" />
+                                    <input
+                                        type="file"
+                                        className="form-control"
+                                        id="binary-file"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -371,7 +395,12 @@ export default function BodyTab() {
                             <div className="card-header">GraphQL</div>
                             <div className="card-body">
                                 <div className="form-control">
-                                    <label className="m-1" htmlFor="graphql-query">Query</label>
+                                    <label
+                                        className="m-1"
+                                        htmlFor="graphql-query"
+                                    >
+                                        Query
+                                    </label>
                                     <textarea
                                         type="text"
                                         className="form-control h-100"
@@ -380,7 +409,12 @@ export default function BodyTab() {
                                     ></textarea>
                                 </div>
                                 <div className="form-control">
-                                    <label className="m-1" htmlFor="graphql-variables">Variables</label>
+                                    <label
+                                        className="m-1"
+                                        htmlFor="graphql-variables"
+                                    >
+                                        Variables
+                                    </label>
                                     <textarea
                                         type="text"
                                         className="form-control h-100"
