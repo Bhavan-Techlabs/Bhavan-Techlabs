@@ -1,6 +1,6 @@
 import React from "react";
-import { getQueryParams } from "../../../functions/util";
-import Modal from "../../common/Modal";
+import { getQueryParams } from "../HttpClientMethods";
+import Modal from "../../../../common/Modal";
 
 function addNewQueryParamModalBody() {
     return (

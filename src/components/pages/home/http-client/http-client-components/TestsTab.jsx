@@ -1,4 +1,5 @@
 import React from "react";
+
 export default function TestsTab() {
     return (
         <>
@@ -27,7 +28,9 @@ export default function TestsTab() {
                         <option value="!==">Not equal to (!==) </option>
                         <option value="<">{"Less than <"}</option>
                         <option value=">">{"Greater than >"}</option>
-                        <option value=">=">{"Greater than or Equal to >="}</option>
+                        <option value=">=">
+                            {"Greater than or Equal to >="}
+                        </option>
                         <option value="<=">{"Less than or Equal to <="}</option>
                     </select>
                 </div>

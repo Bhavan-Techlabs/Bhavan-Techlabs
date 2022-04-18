@@ -1,4 +1,5 @@
 import React from "react";
+
 export default function AuthTab() {
     return (
         <>
@@ -51,7 +52,9 @@ export default function AuthTab() {
                         role="tabpanel"
                         aria-labelledby="nav-none-tab"
                     >
-                        <h6 className="m-3 p-2 text-md-left">No Authentication Selected</h6>
+                        <h6 className="m-3 p-2 text-md-left">
+                            No Authentication Selected
+                        </h6>
                     </div>
                     <div
                         className="tab-pane fade"
@@ -63,16 +66,30 @@ export default function AuthTab() {
                         <div className="card">
                             <div className="card-body">
                                 <div className="mb-3">
-                                    <label htmlFor="username" className="form-label">
+                                    <label
+                                        htmlFor="username"
+                                        className="form-label"
+                                    >
                                         Username
                                     </label>
-                                    <input type="text" className="form-control" id="username" />
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="username"
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">
+                                    <label
+                                        htmlFor="password"
+                                        className="form-label"
+                                    >
                                         Password
                                     </label>
-                                    <input type="password" className="form-control" id="password" />
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -88,7 +105,10 @@ export default function AuthTab() {
                             <div className="card-body">
                                 <div className="m-2 row">
                                     <div className="col-auto d-flex align-items-center">
-                                        <label className="form-label" htmlFor="token-prefix">
+                                        <label
+                                            className="form-label"
+                                            htmlFor="token-prefix"
+                                        >
                                             Token Prefix
                                         </label>
                                     </div>

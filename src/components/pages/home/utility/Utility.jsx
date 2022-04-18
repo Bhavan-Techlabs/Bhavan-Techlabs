@@ -1,5 +1,6 @@
 import React from "react";
-import { get_ip, timestamp } from "../../functions/util";
+import { get_ip, timestamp } from "./UtilityMethods";
+import CopyToClipboard from "../../../common/CopyToClipboard";
 
 function Timestamp() {
     const [ts, setTs] = React.useState(0);
@@ -8,7 +9,6 @@ function Timestamp() {
         e.preventDefault();
         let currentTimeStamp = timestamp();
         setTs(currentTimeStamp);
-        navigator.clipboard.writeText(currentTimeStamp);
     };
 
     return (
@@ -37,9 +37,13 @@ function Timestamp() {
                     onClick={gen_util_timestamp}
                 />
             </div>
+            <div className="col-md-2">
+                <CopyToClipboard selector={"#util-timestamp"} />
+            </div>
         </>
     );
 }
+
 function ConvertTimestamp() {
     const [ts, setTs] = React.useState(0);
     const [convertedTs, setConvertedTs] = React.useState("");
@@ -50,6 +54,7 @@ function ConvertTimestamp() {
         setConvertedTs(date);
     };
     const handleChange = (e) => {
+        e.preventDefault();
         setTs(e.target.value);
     };
 
@@ -90,9 +95,13 @@ function ConvertTimestamp() {
                     onClick={conv_util_timestamp}
                 />
             </div>
+            <div className="col-md-2">
+                <CopyToClipboard selector={"#conv-util-timestamp-result"} />
+            </div>
         </>
     );
 }
+
 function IP() {
     const [ip, setIp] = React.useState("");
 
@@ -127,6 +136,9 @@ function IP() {
                     value="GET IP"
                     onClick={gen_util_ip}
                 />
+            </div>
+            <div className="col-md-2">
+                <CopyToClipboard selector={"#util-ip"} />
             </div>
         </>
     );
