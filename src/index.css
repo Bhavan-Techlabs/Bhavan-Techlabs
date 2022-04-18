@@ -25,3 +25,8 @@ body {
 a {
   text-decoration: auto !important;
 }
+
+.rdw-editor-main {
+  height: 25em;
+  background-color: aliceblue;
+}
