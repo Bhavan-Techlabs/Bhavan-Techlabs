@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import main_img from "../../../assets/images/main_img.webp";
+import LightSwitch from "../../common/LightSwitch";
 
 async function loginUser(credentials) {
     return fetch("http://localhost:8080/login", {
@@ -26,12 +28,15 @@ export default function Login({ setToken }) {
 
     return (
         <>
+            <div className="d-flex">
+                <LightSwitch />
+            </div>
             <section className="vh-100">
                 <div className="container-fluid h-custom">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-md-9 col-lg-6 col-xl-5">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                                src={main_img}
                                 className="img-fluid"
                                 alt="Sample"
                             />

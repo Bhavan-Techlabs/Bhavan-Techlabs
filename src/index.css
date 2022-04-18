@@ -52,3 +52,7 @@ div[data-color-mode="dark"] > div[class="w-tc-editor "] {
         height: 100%;
     }
 }
+
+#lightSwitch {
+    transform: scale(1.5);
+}
