@@ -40,7 +40,7 @@ function TestdataComponent({
 						></textarea>
 					</div>
 					<div className="col-auto">
-						<CopyToClipboard id={datatype} />
+						<CopyToClipboard selector={`#${datatype}`} />
 					</div>
 				</div>
 			) : isTextArea ? (
@@ -60,7 +60,7 @@ function TestdataComponent({
 						></textarea>
 					</div>
 					<div className="col-auto">
-						<CopyToClipboard id={datatype} />
+						<CopyToClipboard selector={`#${datatype}`} />
 					</div>
 				</div>
 			) : (
@@ -80,7 +80,7 @@ function TestdataComponent({
 						/>
 					</div>
 					<div className="col-auto">
-						<CopyToClipboard id={datatype} />
+						<CopyToClipboard selector={`#${datatype}`} />
 					</div>
 				</div>
 			)}

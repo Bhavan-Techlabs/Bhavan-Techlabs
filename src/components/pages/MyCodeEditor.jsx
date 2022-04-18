@@ -96,7 +96,7 @@ export default function MyCodeEditor() {
                     <option value="xml">Language: xml</option>
                     <option value="yaml">Language: yaml</option>
                 </select>
-                <CopyToClipboard id="code-value" />
+                <CopyToClipboard selector="textarea.w-tc-editor-text" />
             </div>
             <div className="form-control m-1" data-color-mode="dark">
                 <CodeEditor

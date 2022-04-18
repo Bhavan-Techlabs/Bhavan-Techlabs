@@ -38,7 +38,7 @@ function Timestamp() {
                 />
             </div>
             <div className="col-md-2">
-                <CopyToClipboard id={"util-timestamp"} />
+                <CopyToClipboard selector={'#util-timestamp'} />
             </div>
         </>
     );
@@ -95,7 +95,7 @@ function ConvertTimestamp() {
                 />
             </div>
             <div className="col-md-2">
-                <CopyToClipboard id={"conv-util-timestamp-result"} />
+                <CopyToClipboard selector={"#conv-util-timestamp-result"} />
             </div>
         </>
     );
@@ -136,7 +136,7 @@ function IP() {
                 />
             </div>
             <div className="col-md-2">
-                <CopyToClipboard id={"util-ip"} />
+                <CopyToClipboard selector={"#util-ip"} />
             </div>
         </>
     );

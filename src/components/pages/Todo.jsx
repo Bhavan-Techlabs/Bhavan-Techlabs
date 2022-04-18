@@ -19,7 +19,7 @@ function Todo({ todo, index, removeTodo }) {
 					</button>
 				</div>
 				<div className="col-auto">
-					<CopyToClipboard id={`todo-item-${index}`} />
+					<CopyToClipboard selector={`#todo-item-${index}`} />
 				</div>
 			</div>
 		</div>

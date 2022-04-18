@@ -1,7 +1,7 @@
-export default function CopyToClipboard({ id }) {
+export default function CopyToClipboard({ selector }) {
     const copyToClip = (e) => {
         e.preventDefault();
-        navigator.clipboard.writeText(document.getElementById(id).value);
+        navigator.clipboard.writeText(document.querySelector(selector).value);
     };
 
     return (
