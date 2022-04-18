@@ -1,7 +1,11 @@
-import Home from "./components/pages/home/Home";
+import { HomePage, LoginPage } from "./components/pages";
 
 function App() {
-    return <Home />;
+    return (
+        <>
+            <HomePage />
+        </>
+    );
 }
 
 export default App;
