@@ -1,17 +1,17 @@
 export default function TopNavBar() {
     return (
         <>
-            <nav class="navbar navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/">
+            <nav className="navbar navbar-light bg-light">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="/">
                         Smart App
                     </a>
-                    <form class="d-flex">
-                        <a class="navbar-brand" href="/">
-                            <i class="bx bx-bell m-1" style={{ "font-size": " xx-large" }}></i>
+                    <form className="d-flex">
+                        <a className="navbar-brand" href="/">
+                            <i className="bx bx-bell m-1" style={{ "fontSize": " xx-large" }}></i>
                             <i
-                                class="bx bx-user-circle m-1"
-                                style={{ "font-size": " xx-large" }}
+                                className="bx bx-user-circle m-1"
+                                style={{ "fontSize": " xx-large" }}
                             ></i>
                         </a>
                     </form>

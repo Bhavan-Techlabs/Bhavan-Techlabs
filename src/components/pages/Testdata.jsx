@@ -9,7 +9,12 @@ function TestdataComponent({
 	datatype,
 	name,
 }) {
+
 	const handleChange = (e) => {
+		e.preventDefault();
+	};
+
+	const copyToClip = (e) => {
 		e.preventDefault();
 		navigator.clipboard.writeText(e.target.value);
 	};
@@ -37,6 +42,15 @@ function TestdataComponent({
 							onChange={handleChange}
 						></textarea>
 					</div>
+					<div className="col-auto">
+						<button
+							className="btn btn-outline-dark"
+							title="copy to clipboard"
+							onClick={copyToClip}
+						>
+							<i className="bx bx-clipboard"></i>
+						</button>
+					</div>
 				</div>
 			) : isTextArea ? (
 				<div className="m-3 row">
@@ -50,6 +64,15 @@ function TestdataComponent({
 							onChange={handleChange}
 						></textarea>
 					</div>
+					<div className="col-auto">
+						<button
+							className="btn btn-outline-dark"
+							title="copy to clipboard"
+							onClick={copyToClip}
+						>
+							<i className="bx bx-clipboard"></i>
+						</button>
+					</div>
 				</div>
 			) : (
 				<div className="m-3 row">
@@ -62,6 +85,15 @@ function TestdataComponent({
 							value={datatype}
 							onChange={handleChange}
 						/>
+					</div>
+					<div className="col-auto">
+						<button
+							className="btn btn-outline-dark"
+							title="copy to clipboard"
+							onClick={copyToClip}
+						>
+							<i className="bx bx-clipboard"></i>
+						</button>
 					</div>
 				</div>
 			)}
@@ -104,7 +136,7 @@ export default function Testdata() {
 			transactionDescription: faker.finance.transactionDescription(),
 			creditCardNumber: faker.finance.creditCardNumber(),
 			color: faker.commerce.color(),
-			address: faker.address.streetAddress()
+			address: faker.address.streetAddress(),
 		};
 	};
 
@@ -155,7 +187,7 @@ export default function Testdata() {
 					<div className="col">
 						<TestdataComponent
 							isRandomWord={true}
-							name={"Random Words"}
+							name={"Random Letters Count"}
 							datatype={data.words}
 							wordCount={wordCount}
 							handleWordCount={(e) => {
