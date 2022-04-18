@@ -158,6 +158,11 @@ export default function Testdata() {
                                         data={data.name}
                                     />
                                     <TestdataComponent
+                                        name={"Prefix"}
+                                        datatype={"dataprefix"}
+                                        data={data.prefix}
+                                    />
+                                    <TestdataComponent
                                         name={"Email"}
                                         datatype={"dataemail"}
                                         data={data.email}
@@ -186,6 +191,16 @@ export default function Testdata() {
                                         name={"Job Type"}
                                         datatype={"data.jobType"}
                                         data={data.jobType}
+                                    />
+                                    <TestdataComponent
+                                        name={"Username"}
+                                        datatype={"datauserName"}
+                                        data={data.userName}
+                                    />
+                                    <TestdataComponent
+                                        name={"Job Descriptor"}
+                                        datatype={"datajobDescriptor"}
+                                        data={data.jobDescriptor}
                                     />
                                 </>
                             }
@@ -276,11 +291,6 @@ export default function Testdata() {
                                         data={data.fileType}
                                     />
                                     <TestdataComponent
-                                        name={"Bitcoin"}
-                                        datatype={"databitcoinAddress"}
-                                        data={data.bitcoinAddress}
-                                    />
-                                    <TestdataComponent
                                         name={"Color"}
                                         datatype={"datacolor"}
                                         data={data.color}
@@ -329,21 +339,6 @@ export default function Testdata() {
                                         isTextArea={true}
                                     />
                                     <TestdataComponent
-                                        name={"Job Descriptor"}
-                                        datatype={"datajobDescriptor"}
-                                        data={data.jobDescriptor}
-                                    />
-                                    <TestdataComponent
-                                        name={"Username"}
-                                        datatype={"datauserName"}
-                                        data={data.userName}
-                                    />
-                                    <TestdataComponent
-                                        name={"Prefix"}
-                                        datatype={"dataprefix"}
-                                        data={data.prefix}
-                                    />
-                                    <TestdataComponent
                                         name={"Genre"}
                                         datatype={"datagenre"}
                                         data={data.genre}
@@ -352,6 +347,11 @@ export default function Testdata() {
                                         name={"CC No"}
                                         datatype={"datacreditCardNumber"}
                                         data={data.creditCardNumber}
+                                    />
+                                    <TestdataComponent
+                                        name={"Bitcoin"}
+                                        datatype={"databitcoinAddress"}
+                                        data={data.bitcoinAddress}
                                     />
                                     <TestdataComponent
                                         name={"Transaction Description"}

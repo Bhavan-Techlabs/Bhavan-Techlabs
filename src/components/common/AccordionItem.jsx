@@ -19,7 +19,7 @@ export default function AccordionItem({
                         aria-expanded="true"
                         aria-controls={accordion_collapse_id}
                     >
-                        {accordion_header_title}
+                        <h5>{accordion_header_title}</h5>
                     </button>
                 </h2>
                 <div
