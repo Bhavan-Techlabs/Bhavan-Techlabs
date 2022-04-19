@@ -32,7 +32,7 @@ a {
 }
 
 div[data-color-mode="dark"] > div[class="w-tc-editor "] {
-    background-color: #161b22 !important;
+    background-color: #f0f8ff !important;
 }
 
 .divider:after,
@@ -55,4 +55,8 @@ div[data-color-mode="dark"] > div[class="w-tc-editor "] {
 
 #lightSwitch {
     transform: scale(1.5);
+}
+
+.navbar-theme {
+    background-color: #bb86fc !important;
 }

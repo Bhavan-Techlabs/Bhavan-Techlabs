@@ -1,11 +1,10 @@
 import React from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 import CopyToClipboard from "../../../common/CopyToClipboard";
+import { code_editor_base_text } from "../../../../constants/AppConstants";
 
 export default function MyCodeEditor() {
-    const [code, setCode] = React.useState(
-        `function add(a, b) {\n  return a + b;\n}`
-    );
+    const [code, setCode] = React.useState(code_editor_base_text);
     const [language, setLanguage] = React.useState("js");
 
     return (

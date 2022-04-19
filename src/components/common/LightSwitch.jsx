@@ -5,20 +5,21 @@ export default function LightSwitch() {
 
     const handleSwitchChange = () => {
         setSwitchCheck(!switchCheck);
+        const lightTheme = (...elements) => {
+            elements.forEach((element) => {
+                element.classList.remove("bg-dark", "text-light");
+                element.classList.add("bg-light", "text-dark");
+            });
+        };
+        const darkTheme = (...elements) => {
+            elements.forEach((element) => {
+                element.classList.remove("bg-light", "text-dark");
+                element.classList.add("bg-dark", "text-light");
+            });
+        };
         let body = document.querySelector("body");
-        let nav = document.querySelector("nav");
         try {
-            if (switchCheck) {
-                body.classList.remove("bg-dark", "text-light");
-                body.classList.add("bg-light", "text-dark");
-                nav.classList.remove("navbar-dark", "bg-dark");
-                nav.classList.add("navbar-light", "bg-light");
-            } else {
-                body.classList.remove("bg-light", "text-dark");
-                body.classList.add("bg-dark", "text-light");
-                nav.classList.remove("navbar-light", "bg-light");
-                nav.classList.add("navbar-dark", "bg-dark");
-            }
+            switchCheck ? lightTheme(body) : darkTheme(body);
         } catch (error) {}
     };
 
