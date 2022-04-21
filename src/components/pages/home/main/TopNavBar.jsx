@@ -3,7 +3,7 @@ import LightSwitch from "../../../common/LightSwitch";
 export default function TopNavBar() {
     return (
         <>
-            <nav className="navbar navbar-light bg-light">
+            <nav className="navbar navbar-theme">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
                         Smart App
